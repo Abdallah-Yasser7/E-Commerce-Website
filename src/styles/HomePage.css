@@ -1,0 +1,32 @@
+/* start navbar */
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 70px;
+}
+
+.login-img {
+  width: 25px;
+}
+
+/* end navbar */
+
+/* start slide */
+
+.img-slide {
+  position: relative;
+  right: 50%;
+  margin-right: -314px;
+}
+
+.text-slide {
+  position: absolute;
+  right: 30% !important;
+  top: 35%;
+}
+
+/* end slide */
