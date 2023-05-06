@@ -30,3 +30,44 @@
 }
 
 /* end slide */
+
+/* start subtitle */
+
+.sub-title {
+  font-weight: bold;
+  font-size: large;
+}
+
+.option {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.option:hover {
+  background-color: black;
+  color: white;
+}
+
+/* end subtitle */
+
+/* start category card */
+
+.img-card {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.card-style {
+  width: 130px;
+  height: 140px;
+  position: absolute;
+  border-radius: 65px;
+  top: -15px;
+  right: -10px;
+}
+
+/* end category card */
