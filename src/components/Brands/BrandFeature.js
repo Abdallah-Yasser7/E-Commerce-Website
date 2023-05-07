@@ -9,7 +9,7 @@ import brand3 from "../../images/brand3.png"
 export const BrandFeature = ({btntitle, title}) => {
   return (
     <Container>
-        <SubTitle btntitle={btntitle} title={title} />
+        <SubTitle btntitle={btntitle} title={title} path="allbrand"/>
         <Row>
           <BrandCard img={brand1}/>
           <BrandCard img={brand2}/>

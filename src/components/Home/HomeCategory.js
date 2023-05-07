@@ -11,7 +11,7 @@ import pic from "../../images/pic.png";
 export const HomeCategory = () => {
   return (
     <Container>
-      <SubTitle btntitle="المذيد" title="التصنيفات" />
+      <SubTitle btntitle="المذيد" title="التصنيفات" path="allcategory"/>
       <Row>
         <CategoryCard title="اجهزة منزلية" img={clothe} background="#F4DBA4" />
         <CategoryCard title="اجهزة منزلية" img={cat2} background="#F4DBA4" />
