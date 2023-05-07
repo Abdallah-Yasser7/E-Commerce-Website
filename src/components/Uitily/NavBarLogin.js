@@ -19,7 +19,7 @@ export const NavBarLogin = () => {
           <Form.Control
             type="search"
             placeholder="ابحث..."
-            className="me-2 w-100 text-center"
+            className="me-2 w-100 text-center custom-form-control"
             aria-label="Search"
           />
           <Nav className="me-auto">

@@ -13,6 +13,10 @@
   width: 25px;
 }
 
+.custom-form-control {
+  box-shadow: none !important;
+}
+
 /* end navbar */
 
 /* start slide */
@@ -27,6 +31,26 @@
   position: absolute;
   right: 30% !important;
   top: 35%;
+}
+
+@media (max-width: 767px) {
+  .img-slide{
+    width: 180px !important;
+    height: 170px !important;
+    margin-right: -180px;
+  }
+
+  .text-slide {
+    font-size: 12px;
+    right: 50% !important;
+    top: 15%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .text-slide {
+    right: 60% !important;
+  }
 }
 
 /* end slide */
@@ -68,6 +92,79 @@
   border-radius: 65px;
   top: -15px;
   right: -10px;
+  opacity: 0.3;
 }
 
 /* end category card */
+
+/* start product card */
+
+.img-fav {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: -45%;
+}
+
+.img-rate {
+  width: 20px;
+  height: 20px;
+}
+
+.card-body {
+  padding-bottom: 5px !important;
+}
+
+.card-text {
+  text-align: start !important;
+}
+
+/* end product card */
+
+/* start discount section */
+
+.discount-backcolor {
+  height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(to right, #4d4f50, #767676, #4d4f50);
+}
+
+.img-lab-discount {
+  width: 250px;
+  height: 100px;
+}
+
+.text-discount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* end discount section */
+
+/* start footer */
+
+.icon-img {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 767px) {
+  .footer-sec1{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer-sec2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
+}
+
+
+
+/* end footer */
+

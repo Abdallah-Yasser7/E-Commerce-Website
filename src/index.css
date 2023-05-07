@@ -1,4 +1,11 @@
+body {
+  margin: 0;
+  font-family: "Almarai", sans-serif;
+}
+
 .font {
   font-family: 'Almarai', sans-serif;
+  background-color: #f9f9f9;
 }
+
 
