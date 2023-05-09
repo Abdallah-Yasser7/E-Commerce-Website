@@ -103,7 +103,13 @@
   width: 30px;
   height: 30px;
   position: relative;
-  left: -45%;
+  left: -90%;
+}
+
+@media (max-width:767px) {
+  .img-fav {
+    left: -80%;
+  }
 }
 
 .img-rate {

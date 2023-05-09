@@ -13,15 +13,15 @@ export const PaginationComponent = () => {
       pageCount={100}
       previousLabel="السابق"
       containerClassName={"pagination justify-content-center p-3"}
-      pageClassName={"page-item"}
-      pageLinkClassName={"page-link"}
-      previousClassName={"page-item"}
-      nextClassName={"page-item"}
       previousLinkClassName={"page-link"}
       nextLinkClassName={"page-link"}
-      breakClassName={"page-item"}
+      pageLinkClassName={"page-link"}
       breakLinkClassName={"page-link"}
       activeClassName={"active"}
+      // pageClassName={"page-item"}
+      // previousClassName={"page-item"}
+      // nextClassName={"page-item"}
+      // breakClassName={"page-item"}
     />
   );
 };

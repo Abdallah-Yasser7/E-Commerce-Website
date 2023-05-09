@@ -13,7 +13,7 @@ export const CategoryCard = ({background, img, title}) => {
     <div style={{position: "relative"}}>
     <div style={{backgroundColor: `${background}`}} className='card-style'></div>
       <img alt='card img' src={img} className='img-card'/>
-      <p className='pt-4'>{title}</p>
+      <p className='pt-4 text-center'>{title}</p>
     </div>
     </Col>
   )

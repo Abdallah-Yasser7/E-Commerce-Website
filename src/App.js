@@ -6,6 +6,7 @@ import { Footer } from "./components/Uitily/Footer";
 import { RegisterPage } from "./pages/Auth/RegisterPage";
 import { CategoryPage } from "./pages/Category/CategoryPage";
 import { BrandPage } from "./pages/Brand/BrandPage";
+import { ProductsPage } from "./pages/Products/ProductsPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/allcategory" element={<CategoryPage />} />
           <Route path="/allbrand" element={<BrandPage />} />
+          <Route path="/products" element={<ProductsPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />

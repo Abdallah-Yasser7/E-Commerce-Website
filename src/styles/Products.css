@@ -1,0 +1,106 @@
+/* start nav search */
+
+.parent-nav-search {
+  background-color: white;
+}
+
+.content div {
+  color: gray;
+  margin-right: 15px;
+}
+
+.content div:hover {
+  color: #212529;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .content div {
+    margin-right: 5px;
+    font-size: 10px;
+  }
+}
+/* end nav search */
+
+/* start dropdown and title */
+
+.dropdown-title {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.img-drop {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.p-drop {
+  color: gray;
+  font-weight: bold;
+}
+
+.option-drop {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.option-drop div {
+  font-size: 13px;
+  color: gray;
+}
+
+.option-drop div:hover {
+  background-color: #212529;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .dropdown-title {
+    font-size: medium;
+  }
+
+  .img-drop {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+  }
+
+  .option-drop {
+    width: 160px;
+  }
+}
+
+/* end dropdown and title */
+
+/* start side filter */
+
+.filter-title {
+  font-weight: bold;
+  font-size: large;
+}
+
+.filter-sub {
+  color: gray;
+}
+
+.input-filter {
+  width: 50px;
+  height: 25px;
+}
+
+@media (max-width:767px) {
+  .input-filter {
+    width: 29px;
+    height: 15px;
+  }
+
+  .filter-sub {
+    font-size: 13px;
+  }
+}
+
+/* end side filter */

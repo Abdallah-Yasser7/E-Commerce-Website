@@ -10,9 +10,9 @@ export const HomePage = () => {
     <div className='font'>
       <Slider/>
       <HomeCategory/>
-      <ProductCardContainer title = "الاكثر مبيعأ" btntitle = "المذيد"/>
+      <ProductCardContainer title = "الاكثر مبيعأ" btntitle = "المذيد" path="products"/>
       <DiscountSection/>
-      <ProductCardContainer title = "احدث الازياء" btntitle = "المذيد"/>
+      <ProductCardContainer title = "احدث الازياء" btntitle = "المذيد" path="products"/>
       <BrandFeature btntitle="المذيد" title="اشهر الماركات"/>
     </div>
   )
