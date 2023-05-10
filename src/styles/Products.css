@@ -92,7 +92,7 @@
   height: 25px;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .input-filter {
     width: 29px;
     height: 15px;
@@ -104,3 +104,130 @@
 }
 
 /* end side filter */
+
+/* start product gallery */
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  width: 50px !important;
+  height: 50px !important;
+  color: gray !important;
+}
+
+.image-gallery-svg:hover {
+  color: #212529 !important;
+}
+
+.parent-gallery {
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.image-gallery-image {
+  height: 450px;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  height: 40px !important;
+  width: 30px !important;
+}
+
+.image-gallery-thumbnail {
+  width: 50px !important;
+}
+
+.image-gallery-thumbnail:hover {
+  border-color: #212529 !important;
+}
+
+.image-gallery-thumbnail.active, .image-gallery-thumbnail.active:hover{
+  width: 50px !important;
+  border-color: #212529 !important;
+}
+
+@media (max-width:767px) {
+  .image-gallery-image {
+    height: 300px;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  .image-gallery-image {
+    height: 500px;
+    width: 180px !important;
+  }
+}
+/* end product gallery */
+
+/* start product details */
+
+.cat-text {
+  color: gray;
+  font-weight: bold;
+}
+
+.cat-rate {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.barnd-text {
+  font-weight: bold;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.product-price {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.product-cart-add {
+  background-color: #212529;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* end product details */
+
+/* start rate container */
+
+.parent-rate {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.parent-rate div, .parent-rate img {
+  margin-left: 10px;
+}
+
+.text-rate {
+  color: gray;
+  font-size: small;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  padding-right: 10px;
+}
+
+.btn-rate {
+  background-color: #212529;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* end rate container */

@@ -4,15 +4,26 @@ import item from "../../images/item.png";
 import favoff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import "../../styles/HomePage.css";
+import { Link } from "react-router-dom";
 
 export const ProductCard = () => {
   return (
-    <Col sm="6" xs="6" md="4" lg="3" className="my-4 d-flex justify-content-center">
+    <Col
+      sm="6"
+      xs="6"
+      md="4"
+      lg="3"
+      className="my-4 d-flex justify-content-center"
+    >
       <Card style={{ width: "18rem" }} className="product-card">
-        <Card.Img variant="top" src={item} />
+        <Link to="/product/:id">
+          <Card.Img variant="top" src={item} />
+        </Link>
         <Card.Body className="card-body">
           <img alt="" src={favoff} className="img-fav" />
-          <Card.Text className="card-text">سود كربون ساعة يد ذكية بيب اس أسود كربون</Card.Text>
+          <Card.Text className="card-text">
+            سود كربون ساعة يد ذكية بيب اس أسود كربون
+          </Card.Text>
           <div className="d-flex justify-content-between">
             <div className="d-flex">
               <img alt="" src={rate} className="img-rate" />
