@@ -1,0 +1,141 @@
+/* start Admin SideBar */
+
+.parent-sidebar {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.text-sidebar {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.text-sidebar:hover {
+  background-color: #212529;
+  color: white;
+  border-radius: 8px;
+}
+
+/* end Admin SideBar */
+
+/* start Admin Order */
+
+.parent-cart-item {
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+  display: flex;
+}
+
+.img-cart-item {
+  width: 125px;
+}
+
+.deleteicon {
+  width: 20px;
+  margin: 5px;
+}
+
+.color-item-cart {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: red;
+}
+
+.parent-details {
+  padding: 10px;
+}
+
+@media (max-width:767px) {
+  .img-cart-item {
+    width: 150px;
+  }
+
+  .parent-cart-item  {
+    display: block;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  .img-cart-item {
+    width: 140px;
+  }
+}
+
+.parent-detials-order {
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.select-details {
+  padding: 10px 50px;
+  margin-right: 5px;
+  background-color: #f9f9f9;
+}
+
+.btn-details {
+  padding: 10px;
+  border: none;
+  background-color: #212529;
+  color: white;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+
+/* end Admin Order */
+
+/* start add brand */
+
+.input-add-brand {
+  padding: 5px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid gray;
+  outline: none;
+}
+
+.btn-add-brand {
+  padding: 10px;
+  background-color: #212529;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* end add brand */
+
+/* start add sub category */
+
+.select-add-subcategory {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  color: gray;
+}
+
+/* end add sub category */
+
+/* start add product admin */
+
+.color-product-admin {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.chip {
+  background: #212529 !important;
+}
+
+
+/* end add product admin */

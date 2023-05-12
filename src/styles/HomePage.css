@@ -59,7 +59,9 @@
 
 .sub-title {
   font-weight: bold;
+  font-weight: 900;
   font-size: large;
+  color: rgb(73, 73, 73);
 }
 
 .option {

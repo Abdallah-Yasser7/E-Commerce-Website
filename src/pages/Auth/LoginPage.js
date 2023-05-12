@@ -30,6 +30,12 @@ export const LoginPage = () => {
             </label>
           </Col>
         </Row>
+        <label className="mt-5">
+              حساب الادمن : 
+              <Link to="/admin/allproducts" style={{textDecoration:"none"}}>
+                <span className="span-login">اضغط هنا</span>
+              </Link>
+            </label>
       </Container>
   );
 };
