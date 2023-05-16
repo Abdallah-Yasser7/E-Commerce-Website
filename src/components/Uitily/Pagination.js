@@ -18,6 +18,7 @@ export const PaginationComponent = () => {
       pageLinkClassName={"page-link"}
       breakLinkClassName={"page-link"}
       activeClassName={"active"}
+      className="pagination"
       // pageClassName={"page-item"}
       // previousClassName={"page-item"}
       // nextClassName={"page-item"}

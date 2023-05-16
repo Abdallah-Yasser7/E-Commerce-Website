@@ -32,3 +32,9 @@ input {
   accent-color: #212529;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

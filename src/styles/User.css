@@ -1,0 +1,87 @@
+/* start all order card */
+
+.parent-all-order-card {
+  display: flex;
+}
+
+.text-all-order-card {
+  width: 60%;
+}
+
+@media (max-width:767px) {
+  .parent-all-order-card {
+    display: block;
+    text-align: center;
+  }
+
+  .text-all-order-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .style-1 {
+    justify-content: center;
+  }
+}
+
+/* end all order card */
+
+/* start all order item */
+
+.parent-all-order-item {
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* end all order item */
+
+/* start User Adress Card */
+
+.parent-UserAdressCard {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.text-fs {
+  font-size: small;
+}
+
+.btn-add-adress {
+  background-color: #212529;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+/* end User Adress Card */
+
+/* start add&edit address */
+
+.parent-edit-add {
+  width: 60%;
+}
+
+@media (max-width:767px) {
+  .parent-edit-add {
+    width: 100%;
+  }
+}
+
+/* end add&edit address */
+
+/* start User Profile */
+
+.parent-UserProfile {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* end User Profile */
