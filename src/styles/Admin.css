@@ -110,6 +110,12 @@
   margin-top: 10px;
 }
 
+.input-file {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
 /* end add brand */
 
 /* start add sub category */

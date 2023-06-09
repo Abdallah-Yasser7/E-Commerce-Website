@@ -1,35 +1,37 @@
-import React from 'react'
-import { Container, Row } from 'react-bootstrap'
-import { CategoryCard } from './CategoryCard'
-import clothe from "../../images/clothe.png";
-import cat2 from "../../images/cat2.png";
-import labtop from "../../images/labtop.png";
-import sale from "../../images/sale.png";
-import pic from "../../images/pic.png";
+import React from "react";
+import { Container, Row, Spinner } from "react-bootstrap";
+import { CategoryCard } from "./CategoryCard";
 
-export const CategoryCardContainer = () => {
+export const CategoryCardContainer = ({loading, category}) => {
+  const colors = [
+    "#FFD3E8",
+    "#F4DBA5",
+    "#55CFDF",
+    "#FF6262",
+    "#0034FF",
+    "#FFD3E8",
+  ];
+
+
   return (
     <Container>
-    <Row>
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={cat2} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={labtop} background="#0034FF" />
-      <CategoryCard title="اجهزة منزلية" img={sale} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#FF6262" />
-      <CategoryCard title="اجهزة منزلية" img={pic} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={cat2} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={labtop} background="#0034FF" />
-      <CategoryCard title="اجهزة منزلية" img={sale} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#FF6262" />
-      <CategoryCard title="اجهزة منزلية" img={pic} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={cat2} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={labtop} background="#0034FF" />
-      <CategoryCard title="اجهزة منزلية" img={sale} background="#F4DBA4" />
-      <CategoryCard title="اجهزة منزلية" img={clothe} background="#FF6262" />
-      <CategoryCard title="اجهزة منزلية" img={pic} background="#F4DBA4" />
-    </Row>
-  </Container>
-  )
-}
+      <Row>
+        {loading === false ? (
+          category.data ? (
+            category.data.map((item, index) => (
+              <CategoryCard
+                title={item.name}
+                img={item.image}
+                background={colors[Math.trunc(Math.random() * 5) +1]}
+              />
+            ))
+          ) : (
+            <h3>لا يوجد تصنيفات</h3>
+          )
+        ) : (
+          <Spinner animation="border" variant="dark" className="Spinner" />
+        )}
+      </Row>
+    </Container>
+  );
+};

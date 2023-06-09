@@ -1,24 +1,34 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { SubTitle } from "../Uitily/SubTitle";
 import { CategoryCard } from "../Category/CategoryCard";
-import clothe from "../../images/clothe.png";
-import cat2 from "../../images/cat2.png";
-import labtop from "../../images/labtop.png";
-import sale from "../../images/sale.png";
-import pic from "../../images/pic.png";
+import useHomeCategoryHook from "../../hook/category/HomeCategoryHook";
 
 export const HomeCategory = () => {
+
+  const [colors, category, loading] = useHomeCategoryHook()
+
   return (
     <Container>
-      <SubTitle btntitle="المذيد" title="التصنيفات" path="allcategory"/>
+      <SubTitle btntitle="المذيد" title="التصنيفات" path="allcategory" />
       <Row>
-        <CategoryCard title="اجهزة منزلية" img={clothe} background="#F4DBA4" />
-        <CategoryCard title="اجهزة منزلية" img={cat2} background="#F4DBA4" />
-        <CategoryCard title="اجهزة منزلية" img={labtop} background="#0034FF" />
-        <CategoryCard title="اجهزة منزلية" img={sale} background="#F4DBA4" />
-        <CategoryCard title="اجهزة منزلية" img={clothe} background="#FF6262" />
-        <CategoryCard title="اجهزة منزلية" img={pic} background="#F4DBA4" />
+        {loading === false ? (
+          category.data ? (
+            category.data
+              .slice(0, 6)
+              .map((item, index) => (
+                <CategoryCard
+                  title={item.name}
+                  img={item.image}
+                  background={colors[index]}
+                />
+              ))
+          ) : (
+            <h3>لا يوجد تصنيفات</h3>
+          )
+        ) : (
+          <Spinner animation="border" variant="dark" className="Spinner" />
+        )}
       </Row>
     </Container>
   );

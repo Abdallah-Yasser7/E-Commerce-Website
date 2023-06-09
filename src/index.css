@@ -38,3 +38,8 @@ input {
   align-items: center;
 }
 
+.Spinner {
+  position: relative !important;
+  right: 50% !important;
+  margin-right: -22px !important;
+}
