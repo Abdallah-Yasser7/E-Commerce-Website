@@ -1,23 +1,24 @@
-import React from 'react'
-import { Container, Row } from 'react-bootstrap'
-import { SubTitle } from '../Uitily/SubTitle'
-import { BrandCard } from './BrandCard'
-import brand1 from "../../images/brand1.png"
-import brand2 from "../../images/brand2.png"
-import brand3 from "../../images/brand3.png"
+import React from "react";
+import { Container, Row, Spinner } from "react-bootstrap";
+import { SubTitle } from "../Uitily/SubTitle";
+import { BrandCard } from "./BrandCard";
+import  useBrandFeatureHook  from "../../hook/brand/BrandFeatureHook";
 
-export const BrandFeature = ({btntitle, title}) => {
+export const BrandFeature = ({ btntitle, title }) => {
+  const [brand, loading] = useBrandFeatureHook();
+
+  console.log(brand)
   return (
     <Container>
-        <SubTitle btntitle={btntitle} title={title} path="allbrand"/>
-        <Row>
-          <BrandCard img={brand1}/>
-          <BrandCard img={brand2}/>
-          <BrandCard img={brand3}/>
-          <BrandCard img={brand1}/>
-          <BrandCard img={brand2}/>
-          <BrandCard img={brand3}/>
-        </Row>
+          <SubTitle btntitle={btntitle} title={title} path="allbrand" />
+          <Row>
+          {
+            loading === false ? (brand.data.slice(0, 6).map((item, index) => (
+            <BrandCard img={item.image} key={index} />
+            ))
+            ) : <Spinner animation="border" variant="dark" className="Spinner" />
+          }
+          </Row>
     </Container>
-  )
-}
+  );
+};

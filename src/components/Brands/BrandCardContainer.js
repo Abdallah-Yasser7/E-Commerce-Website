@@ -1,32 +1,20 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import { BrandCard } from "./BrandCard";
-import brand1 from "../../images/brand1.png"
-import brand2 from "../../images/brand2.png"
-import brand3 from "../../images/brand3.png"
+import { Spinner } from "react-bootstrap";
 
-export const BrandCardContainer = () => {
+export const BrandCardContainer = ({ brand, loading }) => {
+
   return (
-    <div>
+    <div style={{minHeight:"670px"}}>
       <Row>
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
+        {loading === false ? (
+          brand.data.map((item) => (
+            <BrandCard img={item.image} />
+          ))
+        ) : (
+          <Spinner animation="border" variant="dark" className="Spinner" />
+        )}
       </Row>
     </div>
   );
