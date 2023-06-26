@@ -1,7 +1,12 @@
 import React from "react";
 import { SubTitle } from "../Uitily/SubTitle";
+import { ToastContainer } from "react-toastify";
+import { useAdminAddSubCategoryHook } from "../../hook/subcategory/AdminAddSubCategoryHook";
 
 export const AdminAddSubCategory = () => {
+
+  const [id, name, category, handelChangeID, handelClick, handelChangeName] = useAdminAddSubCategoryHook()
+
   return (
     <div>
       <SubTitle title="اضف تصنيف فرعي جديد" />
@@ -10,17 +15,34 @@ export const AdminAddSubCategory = () => {
           type="text"
           className="input-add-brand"
           placeholder="اسم التصنيف الفرعي"
+          onChange={handelChangeName}
+          value={name}
         />
-        <select className="select-add-subcategory">
-          <option value="1">التصنيف الاول</option>
-          <option value="2">التصنيف التاني</option>
-          <option value="3">التصنيف الثالث</option>
-          <option value="4">التصنيف الرابع</option>
+        <select
+          className="select-add-subcategory"
+          onChange={handelChangeID}
+          value={id}
+        >
+          <option value="0" id="0">
+            اختر تصنيف فرعي
+          </option>
+          {category.data
+            ? category.data.map((item) => {
+                return (
+                  <option key={item._id} value={item._id}>
+                    {item.name}
+                  </option>
+                );
+              })
+            : null}
         </select>
         <div className="d-flex justify-content-end">
-          <button className="btn-add-brand">حفظ التعديلات</button>
+          <button onClick={handelClick} className="btn-add-brand">
+            حفظ التعديلات
+          </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
