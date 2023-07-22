@@ -77,7 +77,9 @@ export const useAdminAddSubCategoryHook = () => {
       } else {
         notify("هناك مشكله في عملية الاضافه", "warn");
       }
-      dispatch(getAllCategory());
+      // dispatch(getAllCategory());
+      console.log(category);
+      console.log(subCategory);
       setLoading(true);
     }
   },[subCategory, loading, category, dispatch]);

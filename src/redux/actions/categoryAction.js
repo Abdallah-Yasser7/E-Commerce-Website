@@ -3,8 +3,8 @@ import { GET_ALL_CATEGORY, GET_ERROR, CREATE_CATEGORY } from "../type";
 import { useInsertDataWithImage } from './../../hooks/useInsertData';
 
 export const getAllCategory = (limit,page) => async (dispatch) => {
-  const res = await useGetData(`/api/v1/categories?limit=${limit}&page=${page}`);
   try {
+    const res = await useGetData(`/api/v1/categories?limit=${limit}&page=${page}`);
     dispatch({
       type: GET_ALL_CATEGORY,
       payload: res,
@@ -18,8 +18,8 @@ export const getAllCategory = (limit,page) => async (dispatch) => {
 };
 
 export const createCategory = (formData) => async (dispatch) => {
-  const res = await useInsertDataWithImage(`/api/v1/categories`, formData);
   try {
+    const res = await useInsertDataWithImage(`/api/v1/categories`, formData);
     dispatch({
       type: CREATE_CATEGORY,
       payload: res,
