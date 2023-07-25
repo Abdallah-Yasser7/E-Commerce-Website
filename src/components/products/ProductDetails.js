@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-export const ProductDetails = () => {
+export const ProductDetails = ({id}) => {
   return (
     <div className="p-3">
       <Row className="mt-2">

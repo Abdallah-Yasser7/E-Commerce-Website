@@ -4,15 +4,20 @@ import { HomeCategory } from '../../components/Home/HomeCategory'
 import { ProductCardContainer } from '../../components/products/productCardContainer';
 import { DiscountSection } from '../../components/Home/DiscountSection';
 import { BrandFeature } from '../../components/Brands/BrandFeature';
+import { useViewHomProductHook } from '../../hook/products/viewHomProductHook';
 
 export const HomePage = () => {
+
+  const [items] = useViewHomProductHook()
+  if (items)
+  console.log(items);
   return (
     <div className='font'>
       <Slider/>
       <HomeCategory/>
-      <ProductCardContainer title = "الاكثر مبيعأ" btntitle = "المذيد" path="products"/>
+      <ProductCardContainer products = {items} title = "الاكثر مبيعأ" btntitle = "المذيد" path="products"/>
       <DiscountSection/>
-      <ProductCardContainer title = "احدث الازياء" btntitle = "المذيد" path="products"/>
+      <ProductCardContainer products = {items} title = "احدث الازياء" btntitle = "المذيد" path="products"/>
       <BrandFeature btntitle="المذيد" title="اشهر الماركات"/>
     </div>
   )

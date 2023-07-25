@@ -128,12 +128,17 @@ export const useAddProductHook = () => {
       prodDescription === "" ||
       qty === "" ||
       priceBefore === "" ||
-      priceAfter === 0 ||
+      priceAfter === "" ||
       images.length <= 0 ||
       catID === 0 ||
       brandID === 0
     ) {
       notify("من فضلك اكمل جميع البيانات", "warn");
+      return;
+    }
+
+    if (priceAfter >= priceBefore) {
+      notify("السعر بعد الخصم يجب ان يكون اقل من السعر قبل الخصم","warn")
       return;
     }
 

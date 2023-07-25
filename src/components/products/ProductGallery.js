@@ -4,7 +4,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import mobile from "../../images/mobile.png";
 // import { RightButton } from "./RightButton";
 
-export const ProductGallery = () => {
+export const ProductGallery = ({id}) => {
   const images = [
     {
       original: `${mobile}`,

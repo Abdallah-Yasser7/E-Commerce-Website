@@ -5,8 +5,11 @@ import { DropdownTitle } from '../../components/Uitily/DropdownTitle';
 import SideFilter from './../../components/Uitily/SideFilter';
 import { ProductCardContainer } from './../../components/products/productCardContainer';
 import { PaginationComponent } from '../../components/Uitily/Pagination';
+import { useSearchHomProductHook } from '../../hook/products/viewSearchProductHook';
 
 export const ProductsPage = () => {
+
+  const [items] = useSearchHomProductHook();
   return (
     <div style={{minHeight:"670px"}}>
       <NavFilter/>
@@ -17,7 +20,7 @@ export const ProductsPage = () => {
             <SideFilter/>
           </Col>
           <Col sm="10" xs="10" >
-            <ProductCardContainer/>
+            <ProductCardContainer products = {items}/>
           </Col>
         </Row>
         <PaginationComponent/>
