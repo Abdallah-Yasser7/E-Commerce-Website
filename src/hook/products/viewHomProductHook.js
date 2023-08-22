@@ -12,10 +12,12 @@ export const useViewHomProductHook = () => {
   const products = useSelector(state => state.allProduct.allProduct)
   let items = [];
   
-  if (products.data) {
-    items = products.data.slice(0, 4);
-  } else {
-    items = [];
+  if (products) {
+    if (products.data) {
+      items = products.data.slice(0, 4);
+    } else {
+      items = [];
+    }
   }
 
   return [items]

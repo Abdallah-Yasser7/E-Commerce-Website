@@ -1,24 +1,26 @@
 import React from "react";
 import ReactImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import mobile from "../../images/mobile.png";
+import { useParams } from "react-router-dom";
+import { useViewDetailsProductHook } from "../../hook/products/viewDetailsProductHook";
 // import { RightButton } from "./RightButton";
+// import { useEffect } from "react";
+// import images from "../../images/mobile.png"
 
-export const ProductGallery = ({id}) => {
-  const images = [
-    {
-      original: `${mobile}`,
-      thumbnail: `${mobile}`,
-    },
-    {
-      original: `${mobile}`,
-      thumbnail: `${mobile}`,
-    },
-    {
-      original: `${mobile}`,
-      thumbnail: `${mobile}`,
-    },
-  ];
+export const ProductGallery = () => {
+  const { id } = useParams();
+  const [item] = useViewDetailsProductHook(id);
+
+  let images = [];
+  if (item) {
+    if (item.images) {
+        images = item.images.map((img) => { return {
+        original: img,
+        thumbnail: img,
+      }})
+    }
+  }
+
   return (
     <div className="parent-gallery">
       <ReactImageGallery

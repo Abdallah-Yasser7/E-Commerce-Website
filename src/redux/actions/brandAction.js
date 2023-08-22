@@ -1,5 +1,5 @@
 import { useGetData } from "../../hooks/useGetData";
-import { GET_ALL_BRAND, GET_ERROR, CREATE_BRAND } from "../type";
+import { GET_ALL_BRAND, GET_ERROR, CREATE_BRAND, GET_ONE_BRAND } from "../type";
 import { useInsertDataWithImage } from './../../hooks/useInsertData';
 
 export const getAllBrand = (limit, page) => async (dispatch) => {
@@ -33,3 +33,18 @@ export const createBrand = (formData) => async (dispatch) => {
   }
 
 }
+
+export const getOneBrand = (id) => async (dispatch) => {
+  const res = await useGetData(`/api/v1/brands/${id}`);
+  try {
+    dispatch({
+      type: GET_ONE_BRAND,
+      payload: res,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_ERROR,
+      payload: "Error" + e,
+    })
+  }
+};

@@ -15,7 +15,7 @@ export const ProductCard = ({products}) => {
       className="my-4 d-flex justify-content-center"
     >
       <Card style={{ width: "18rem" }} className="product-card">
-        <Link to={`/product/:${products._id}`}>
+        <Link to={`/product/${products._id}`}>
           <Card.Img variant="top" src={products.imageCover} />
         </Link>
         <Card.Body className="card-body">

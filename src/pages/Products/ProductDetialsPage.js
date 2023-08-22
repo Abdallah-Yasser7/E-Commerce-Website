@@ -3,23 +3,22 @@ import { NavFilter } from "../../components/products/NavFilter";
 import { Container } from "react-bootstrap";
 import { CardProductComponanet } from "../../components/products/CardProductComponanet";
 import { RateContainer } from "../../components/Rate/RateContainer";
-import { ProductCardContainer } from "../../components/products/productCardContainer";
-import { useSearchHomProductHook } from "../../hook/products/viewSearchProductHook";
 import { useParams } from "react-router-dom";
+import { ProductCardContainer } from "../../components/products/productCardContainer";
+import { useViewDetailsProductHook } from "../../hook/products/viewDetailsProductHook";
 
 export const ProductDetialsPage = () => {
-
-  const [items] = useSearchHomProductHook()
-
-  const {id} = useParams();
+  const { id } = useParams();
+  const [ , , , productLike] = useViewDetailsProductHook(id);
+  let prodLike = productLike.slice(0, 4);
 
   return (
     <div style={{ minHeight: "760px" }}>
       <NavFilter />
       <Container>
-        <CardProductComponanet id = {id}/>
+        <CardProductComponanet/>
         <RateContainer/>
-        <ProductCardContainer products={items} title="منتجات قد تعجبك"/>
+        <ProductCardContainer products = {prodLike} title="منتجات قد تعجبك"/>
       </Container>
     </div>
   );

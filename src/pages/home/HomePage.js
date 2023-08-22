@@ -9,8 +9,7 @@ import { useViewHomProductHook } from '../../hook/products/viewHomProductHook';
 export const HomePage = () => {
 
   const [items] = useViewHomProductHook()
-  if (items)
-  console.log(items);
+  
   return (
     <div className='font'>
       <Slider/>
