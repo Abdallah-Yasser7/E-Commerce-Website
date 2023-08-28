@@ -9,12 +9,19 @@ import { useSearchHomProductHook } from '../../hook/products/viewSearchProductHo
 
 export const ProductsPage = () => {
 
-  const [items] = useSearchHomProductHook();
+  const [items, pagination, onpress] = useSearchHomProductHook();
+  console.log(pagination);
+  if (pagination) {
+    var pageCount = pagination;
+  } else {
+    pageCount = 0;
+  }
+
   return (
     <div style={{minHeight:"670px"}}>
       <NavFilter/>
       <Container>
-        <DropdownTitle title="400 نتيجة بحث..."/>
+        <DropdownTitle title= {`${items.length} نتيجة بحث...`}/>
         <Row>
           <Col sm="2" xs="2" >
             <SideFilter/>
@@ -23,7 +30,7 @@ export const ProductsPage = () => {
             <ProductCardContainer products = {items}/>
           </Col>
         </Row>
-        <PaginationComponent/>
+        <PaginationComponent pageCount = {pageCount} onpress = {onpress}/>
       </Container>
     </div>
   )

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { getAllProduct } from "../../redux/actions/productsAction";
 
-export const useSearchHomProductHook = () => {
+export const useDeleteProductHook = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -10,7 +10,8 @@ export const useSearchHomProductHook = () => {
   },[dispatch])
 
   const products = useSelector(state => state.allProduct.allProduct)
-  
+
+
   let items = [];
   if (products) {
     if (products.data) {
@@ -18,7 +19,7 @@ export const useSearchHomProductHook = () => {
     }
   }
 
-  let pagination = []
+  let pagination = 0;
   if (products) {
     if (products.paginationResult) {
       if (products.paginationResult.numberOfPages) {
@@ -30,6 +31,7 @@ export const useSearchHomProductHook = () => {
   const onpress = async (data) => {
     await dispatch(getAllProduct(2, data))
   }
+
 
   return [items, pagination, onpress]
 }
