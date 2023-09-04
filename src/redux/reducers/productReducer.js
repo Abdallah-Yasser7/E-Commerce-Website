@@ -1,4 +1,4 @@
-import { GET_ERROR, CREATE_PRODUCT, GET_ALL_PRODUCT, GET_PRODUCT_DETAILS, GET_PRODUCT_LIKE, DELETE_PRODUCT } from '../type';
+import { GET_ERROR, CREATE_PRODUCT, GET_ALL_PRODUCT, GET_PRODUCT_DETAILS, GET_PRODUCT_LIKE, DELETE_PRODUCT, UPDATE_PRODUCT } from '../type';
 
 const initialValue = {
   product: [],
@@ -6,6 +6,7 @@ const initialValue = {
   oneProduct: [],
   productsLike: [],
   deleteProduct: [],
+  updateProduct: [],
   loading: true,
 }
 
@@ -37,6 +38,12 @@ export const productReducer = (state = initialValue, action) => {
         return {
             ...state,
             deleteProduct: action.payload,
+            loading: false,
+        }
+      case UPDATE_PRODUCT:
+        return {
+            ...state,
+            updateProduct: action.payload,
             loading: false,
         }
     case GET_ERROR:

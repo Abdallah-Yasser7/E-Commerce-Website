@@ -6,17 +6,16 @@ import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../redux/actions/productsAction";
 
 export const AdminProductCard = ({ item }) => {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handelDelete = async () => {
-    await dispatch(deleteProduct(item._id))
-    setShow(false)
+    await dispatch(deleteProduct(item._id));
+    setShow(false);
     window.location.reload();
-  }
+  };
 
   return (
     <Col
@@ -28,23 +27,36 @@ export const AdminProductCard = ({ item }) => {
     >
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title><div className="font-modals">تأكيد الحذف</div></Modal.Title>
+          <Modal.Title>
+            <div className="font-modals">تأكيد الحذف</div>
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body><div className="font-modals">هل انت متأكد من حذف المنتج ؟</div></Modal.Body>
+        <Modal.Body>
+          <div className="font-modals">هل انت متأكد من حذف المنتج ؟</div>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             <div className="font-modals">تراجع</div>
           </Button>
           <Button variant="danger" onClick={handleClose}>
-            <div className="font-modals" onClick={handelDelete}>حذف</div>
+            <div className="font-modals" onClick={handelDelete}>
+              حذف
+            </div>
           </Button>
         </Modal.Footer>
       </Modal>
 
       <Card style={{ width: "18rem" }} className="product-card">
         <div className="d-flex justify-content-between px-2">
-          <div style={{ color: "gray", cursor: "pointer" }} onClick={handleShow}>ازاله</div>
-          <div style={{ color: "gray", cursor: "pointer" }}>تعديل</div>
+          <div
+            style={{ color: "gray", cursor: "pointer" }}
+            onClick={handleShow}
+          >
+            ازاله
+          </div>
+          <Link to={`/admin/editProduct/${item._id}`} style={{textDecoration: "none"}}>
+            <div style={{ color: "gray", cursor: "pointer" }}>تعديل</div>
+          </Link>
         </div>
         <Link to={`/product/${item._id}`}>
           <Card.Img variant="top" src={item.imageCover} />
