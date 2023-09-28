@@ -6,7 +6,7 @@ export const BrandCard = ({img}) => {
   return (
     <Col sm="6" xs="6" md="4" lg="2" className="d-flex justify-content-center my-2">
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={img}/>
+        <Card.Img style={{height: "200px", width: "100%"}} src={img}/>
       </Card>
     </Col>
   );

@@ -3,11 +3,11 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { AdminSideBar } from '../../components/Admin/AdminSideBar'
 import { AdminAllProducts } from '../../components/Admin/AdminAllProducts'
 import { PaginationComponent } from '../../components/Uitily/Pagination'
-import { useDeleteProductHook } from '../../hook/products/deleteProductHook'
+import { useViewProductAdminHook } from '../../hook/Admin/viewProductAdminHook'
 
 export const AdminAllProductsPage = () => {
 
-  const [items, pagination, onpress] = useDeleteProductHook();
+  const [items, pagination, onpress] = useViewProductAdminHook();
   
   return (
     <Container style={{minHeight:"670px"}}>

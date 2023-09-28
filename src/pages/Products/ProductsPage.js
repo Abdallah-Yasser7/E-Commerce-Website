@@ -9,8 +9,8 @@ import { useSearchHomProductHook } from '../../hook/products/viewSearchProductHo
 
 export const ProductsPage = () => {
 
-  const [items, pagination, onpress] = useSearchHomProductHook();
-  console.log(pagination);
+  const [items, pagination, onpress, getProductFromSearch, numberOfResults] = useSearchHomProductHook();
+
   if (pagination) {
     var pageCount = pagination;
   } else {
@@ -21,7 +21,7 @@ export const ProductsPage = () => {
     <div style={{minHeight:"670px"}}>
       <NavFilter/>
       <Container>
-        <DropdownTitle title= {`${items.length} نتيجة بحث...`}/>
+        <DropdownTitle onclick={getProductFromSearch} title= {`${numberOfResults} نتيجة بحث...`}/>
         <Row>
           <Col sm="2" xs="2" >
             <SideFilter/>

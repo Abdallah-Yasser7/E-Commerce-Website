@@ -16,12 +16,12 @@ export const ProductCard = ({products}) => {
     >
       <Card style={{ width: "18rem" }} className="product-card">
         <Link to={`/product/${products._id}`}>
-          <Card.Img variant="top" src={products.imageCover} />
+          <Card.Img style={{height: "200px", width: "100%"}} src={products.imageCover} />
         </Link>
         <Card.Body className="card-body">
           <img alt="" src={favoff} className="img-fav" />
           <Card.Text className="card-text">
-            {products.description}
+            {products.title}
           </Card.Text>
           <div className="d-flex justify-content-between">
             <div className="d-flex">

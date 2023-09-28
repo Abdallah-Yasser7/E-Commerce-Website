@@ -59,7 +59,7 @@ export const AdminProductCard = ({ item }) => {
           </Link>
         </div>
         <Link to={`/product/${item._id}`}>
-          <Card.Img variant="top" src={item.imageCover} />
+          <Card.Img style={{height: "200px", width: "100%"}} src={item.imageCover} />
         </Link>
         <Card.Body className="card-body">
           <Card.Text className="card-text">{item.title}</Card.Text>

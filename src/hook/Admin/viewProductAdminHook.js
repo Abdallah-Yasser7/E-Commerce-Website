@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { getAllProduct } from "../../redux/actions/productsAction";
 
-export const useDeleteProductHook = () => {
+export const useViewProductAdminHook = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProduct(2))
+    dispatch(getAllProduct(12))
   },[dispatch])
 
   const products = useSelector(state => state.allProduct.allProduct)
@@ -29,9 +29,8 @@ export const useDeleteProductHook = () => {
   }
 
   const onpress = async (data) => {
-    await dispatch(getAllProduct(2, data))
+    await dispatch(getAllProduct(12, data))
   }
-
 
   return [items, pagination, onpress]
 }

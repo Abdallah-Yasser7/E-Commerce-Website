@@ -37,6 +37,22 @@ export const getAllProduct = (limit, page) => async (dispatch) => {
   }
 }
 
+export const getProductSearch = (queryString) => async (dispatch) => {
+  try {
+    const res = await useGetData(`/api/v1/products?${queryString}`)
+    dispatch({
+      type: GET_ALL_PRODUCT,
+      payload: res,
+      loading: true
+    })
+  } catch (e) {
+    dispatch({
+      type: GET_ERROR,
+      payload: "Error" + e,
+    })
+  }
+}
+
 //get one product with id
 export const getOneProduct = (id) => async (dispatch) => {
   try {

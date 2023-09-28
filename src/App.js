@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="font">
       <BrowserRouter>
-      <NavBarLogin />
+        <NavBarLogin />
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -45,15 +45,24 @@ function App() {
           <Route path="/admin/order/:id" element={<AdminOrderDetailsPage />} />
           <Route path="/admin/addbrand" element={<AdminAddBrandPage />} />
           <Route path="/admin/addcategory" element={<AdminAddCategoryPage />} />
-          <Route path="/admin/addsubcategory" element={<AdminAddSubCategoryPage />} />
+          <Route
+            path="/admin/addsubcategory"
+            element={<AdminAddSubCategoryPage />}
+          />
           <Route path="/admin/addproduct" element={<AdminAddProductPage />} />
           <Route path="/user/allorders" element={<UserAllOrderPage />} />
-          <Route path="/user/favoriteproducts" element={<UserFavoriteProductsPage />} />
+          <Route
+            path="/user/favoriteproducts"
+            element={<UserFavoriteProductsPage />}
+          />
           <Route path="/user/alladress" element={<UserAllAdressPage />} />
           <Route path="/user/add-address" element={<UserAddAdressPage />} />
           <Route path="/user/edit-address" element={<UserEditAdressPage />} />
           <Route path="/user/profile" element={<UserProfilePage />} />
-          <Route path="/admin/editProduct/:id" element={<AdminEditProductPage />} />
+          <Route
+            path="/admin/editProduct/:id"
+            element={<AdminEditProductPage />}
+          />
         </Routes>
       </BrowserRouter>
       <Footer />

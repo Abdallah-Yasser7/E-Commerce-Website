@@ -128,7 +128,7 @@ export const useAddProductHook = () => {
       prodDescription === "" ||
       qty === "" ||
       priceBefore === "" ||
-      priceAfter === "" ||
+      // priceAfter === "" ||
       images.length <= 0 ||
       catID === 0 ||
       brandID === 0

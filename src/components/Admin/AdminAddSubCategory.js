@@ -4,8 +4,8 @@ import { ToastContainer } from "react-toastify";
 import { useAdminAddSubCategoryHook } from "../../hook/subcategory/AdminAddSubCategoryHook";
 
 export const AdminAddSubCategory = () => {
-
-  const [id, name, category, handelChangeID, handelClick, handelChangeName] = useAdminAddSubCategoryHook()
+  const [id, name, category, handelChangeID, handelClick, handelChangeName] =
+    useAdminAddSubCategoryHook();
 
   return (
     <div>
@@ -26,14 +26,16 @@ export const AdminAddSubCategory = () => {
           <option value="0" id="0">
             اختر تصنيف فرعي
           </option>
-          {category.data
-            ? category.data.map((item) => {
-                return (
-                  <option key={item._id} value={item._id}>
-                    {item.name}
-                  </option>
-                );
-              })
+          {category
+            ? category.data
+              ? category.data.map((item) => {
+                  return (
+                    <option key={item._id} value={item._id}>
+                      {item.name}
+                    </option>
+                  );
+                })
+              : null
             : null}
         </select>
         <div className="d-flex justify-content-end">

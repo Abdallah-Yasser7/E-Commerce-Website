@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import { useAddProductHook } from "../../hook/products/addProductHook";
 
 export const AdminAddProduct = () => {
-
   const [
     category,
     brand,
@@ -38,8 +37,8 @@ export const AdminAddProduct = () => {
     colors,
     showColor,
     catID,
-    brandID
-  ] = useAddProductHook()
+    brandID,
+  ] = useAddProductHook();
 
   return (
     <div>
@@ -98,7 +97,11 @@ export const AdminAddProduct = () => {
           value={qty}
           onChange={(e) => setQty(e.target.value)}
         />
-        <select className="select-add-subcategory" onChange={onSelectCategory} value={catID}>
+        <select
+          className="select-add-subcategory"
+          onChange={onSelectCategory}
+          value={catID}
+        >
           <option value="0">اختر تصنيف رئيسي</option>
           {category.data
             ? category.data.map((item) => {
@@ -116,12 +119,18 @@ export const AdminAddProduct = () => {
           displayValue="name"
         />
 
-        <select className="select-add-subcategory" onChange={onSelectBrand} value={brandID}>
+        <select
+          className="select-add-subcategory"
+          onChange={onSelectBrand}
+          value={brandID}
+        >
           <option value="0">اختر ماركه</option>
-          {brand.data
-            ? brand.data.map((item) => {
-                return <option value={item._id}>{item.name}</option>;
-              })
+          {brand
+            ? brand.data
+              ? brand.data.map((item) => {
+                  return <option value={item._id}>{item.name}</option>;
+                })
+              : null
             : null}
         </select>
 
@@ -134,7 +143,7 @@ export const AdminAddProduct = () => {
               ? colors.map((item) => {
                   return (
                     <div
-                      style={{ backgroundColor: item, cursor:"pointer" }}
+                      style={{ backgroundColor: item, cursor: "pointer" }}
                       className="color-product-admin"
                       onClick={() => handelOnRemove(item)}
                     ></div>
@@ -158,10 +167,12 @@ export const AdminAddProduct = () => {
         </div>
 
         <div className="d-flex justify-content-end">
-          <button onClick={handelSubmit} className="btn-add-brand">حفظ التعديلات</button>
+          <button onClick={handelSubmit} className="btn-add-brand">
+            حفظ التعديلات
+          </button>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

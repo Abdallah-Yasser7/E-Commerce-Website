@@ -8,10 +8,11 @@ import notify from "../useNotifaction";
 import { getAllCategory } from "../../redux/actions/categoryAction";
 import { getAllBrand } from "../../redux/actions/brandAction";
 import { getSubCategory } from "../../redux/actions/subCategoryAction";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const useEditProductHook = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!navigator.onLine) {
@@ -53,8 +54,8 @@ export const useEditProductHook = () => {
   const [images, setImages] = useState([]);
   const [prodName, setProdName] = useState("");
   const [prodDescription, setProdDescription] = useState("");
-  const [priceBefore, setPriceBefore] = useState();
-  const [priceAfter, setPriceAfter] = useState();
+  const [priceBefore, setPriceBefore] = useState("");
+  const [priceAfter, setPriceAfter] = useState("");
   const [qty, setQty] = useState();
   const [catID, setCatID] = useState(0);
   const [selectSubCatID, setSelectSubCatID] = useState("");
@@ -78,34 +79,7 @@ export const useEditProductHook = () => {
     }
   }, [item]);
 
-  const product = useSelector((state) => state.allProduct.product);
-
-  useEffect(() => {
-    if (loading === false) {
-      setImages([]);
-      setProdName("");
-      setProdDescription("");
-      setPriceBefore("");
-      setPriceAfter("");
-      setQty("");
-      setCatID(0);
-      setSelectSubCatID("");
-      setBrandID(0);
-      setColors([]);
-      setOptions([]);
-      setTimeout(() => {
-        setLoading(true);
-      }, 2000);
-
-      if (product) {
-        if (product.status === 201) {
-          notify("تم الاضافه بنجاح", "success");
-        } else {
-          notify("هناك مشكله في عملية الاضافه", "error");
-        }
-      }
-    }
-  }, [loading, product]);
+  // const product = useSelector((state) => state.allProduct.product);
 
   const onSelectCategory = async (e) => {
     setCatID(e.target.value);
@@ -182,10 +156,12 @@ export const useEditProductHook = () => {
       prodDescription === "" ||
       qty === "" ||
       priceBefore === "" ||
-      priceAfter === "" ||
+      // priceAfter === "" ||
       images.length <= 0 ||
       catID === 0 ||
-      brandID === 0
+      brandID === 0 ||
+      // colors === [] ||
+      selectSubCatID === ""
     ) {
       notify("من فضلك اكمل جميع البيانات", "warn");
       return;
@@ -235,6 +211,38 @@ export const useEditProductHook = () => {
       setLoading(false);
     }, 1000);
   };
+  
+  const msgEdit = useSelector(state => state.allProduct.updateProduct)
+
+  useEffect(() => {
+    if (loading === false) {
+      setImages([]);
+      setProdName("");
+      setProdDescription("");
+      setPriceBefore("");
+      setPriceAfter("");
+      setQty("");
+      setCatID(0);
+      setSelectSubCatID("");
+      setBrandID(0);
+      setColors([]);
+      setOptions([]);
+      setTimeout(() => {
+        setLoading(true);
+      }, 2000);
+      if (msgEdit) {
+        if(msgEdit.status === 200) {
+          notify("تم التعديل بنجاح","success")
+          setTimeout(() => {
+            navigate("/admin/allproducts")
+          }, 1000);
+        } else {
+          notify("هناك مشكله في عملية التعديل","error")
+        }
+      }
+    }
+  }, [loading, msgEdit, navigate]);
+
 
   return [
     category,
