@@ -1,26 +1,47 @@
 import React from "react";
-import { Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Container, Form, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import login from "../../images/login.png";
 import cart from "../../images/cart.png";
 import "../../styles/HomePage.css";
 import { useNavbarSearchHook } from "../../hook/search/navbarSearchHook";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export const NavBarLogin = () => {
   const [onChangeSearch] = useNavbarSearchHook();
+  const navigate = useNavigate()
 
   let word = "";
   if (localStorage.getItem("searchWord") != null) {
     word = localStorage.getItem("searchWord");
   }
 
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
+  console.log(user);
+
+  const logout = () => {
+    localStorage.removeItem("user")
+    setUser("")
+    navigate("/")
+  }
+
+  const profile = () => {
+    navigate("/user/profile")
+  }
 
   return (
     <Navbar bg="dark" expand="sm" variant="dark" className="sticky-top">
       <Container>
         <Navbar.Brand>
-          <Link to = "/">
+          <Link to="/">
             <img src={logo} className="logo" alt="logo" />
           </Link>
         </Navbar.Brand>
@@ -35,37 +56,49 @@ export const NavBarLogin = () => {
             aria-label="Search"
           />
           <Nav className="me-auto">
-            <Nav.Link
-              className="nav-text d-flex justify-content-center align-items-center"
-            >
-            <Link to = "/login" style={{textDecoration: "none"}} className="d-flex">
-              <img src={login} alt="img login" className="login-img" />
-              <p
-                style={{
-                  color: "white",
-                  marginBottom: "0",
-                  marginRight: "3px",
-                }}
-              >
-                دخول
-              </p>
-            </Link>
+            <Nav.Link className="nav-text d-flex justify-content-center align-items-center">
+              {user !== "" ? (
+                <NavDropdown title={user.name} id="basic-nav-dropdown">
+                  <NavDropdown.Item onClick={profile} href="/user/profile">الصفحه الشخصيه</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logout} href="/">تسجيل الخروج</NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none" }}
+                  className="d-flex"
+                >
+                  <img src={login} alt="img login" className="login-img" />
+                  <p
+                    style={{
+                      color: "white",
+                      marginBottom: "0",
+                      marginRight: "3px",
+                    }}
+                  >
+                    دخول
+                  </p>
+                </Link>
+              )}
             </Nav.Link>
-            <Nav.Link
-              className="nav-text d-flex justify-content-center  align-items-center"
-            >
-            <Link to = "/cart" style={{textDecoration: "none"}} className="d-flex">
-              <img src={cart} alt="img cart" className="login-img" />
-              <p
-                style={{
-                  color: "white",
-                  marginBottom: "0",
-                  marginRight: "3px",
-                }}
+            <Nav.Link className="nav-text d-flex justify-content-center  align-items-center">
+              <Link
+                to="/cart"
+                style={{ textDecoration: "none" }}
+                className="d-flex"
               >
-                العربه
-              </p>
-            </Link>
+                <img src={cart} alt="img cart" className="login-img" />
+                <p
+                  style={{
+                    color: "white",
+                    marginBottom: "0",
+                    marginRight: "3px",
+                  }}
+                >
+                  العربه
+                </p>
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

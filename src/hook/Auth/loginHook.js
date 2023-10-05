@@ -3,12 +3,10 @@ import notify from './../useNotifaction';
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/authAction";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const useLoginHook = () => {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -54,17 +52,20 @@ export const useLoginHook = () => {
         if (res.status === 200) {
           notify("تم الدخول بنجاح","success")
           setTimeout(() => {
-            navigate("/")
-          }, 1500);
+            window.location.href = "/"
+          }, 1000);
         }
         if (res.data.token) {
           localStorage.setItem("token", res.data.token)
+          localStorage.setItem("user", JSON.stringify(res.data.data))
         } else {
           localStorage.removeItem("token")
+          localStorage.removeItem("user", res.data.data)
         }
         if (res.data.message) {
           if (res.data.message === "Incorrect email or password") {
             localStorage.removeItem("token")
+            localStorage.removeItem("user", res.data.data)
             notify("هناك خطأ في كلمة المرور او الايميل","error")
           }
         }
@@ -73,7 +74,7 @@ export const useLoginHook = () => {
         setLoading(true)
       }
     }
-  },[loading, res, navigate])
+  },[loading, res])
 
   return [email, password, handelEmail, handelPassword, handelSubmit, spinner];
 }

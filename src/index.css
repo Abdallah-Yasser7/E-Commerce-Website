@@ -47,3 +47,19 @@ input {
   right: 50% !important;
   margin-right: -22px !important;
 }
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  background-color: #31363a !important;
+}
+
+.dropdown-menu {
+  background-color: #212529 !important;
+}
+
+.dropdown-divider {
+  background-color: #47494c !important;
+}
