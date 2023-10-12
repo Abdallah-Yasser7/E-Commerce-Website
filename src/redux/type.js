@@ -19,5 +19,8 @@ export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
 
 export const CREATE_USER = "CREATE_USER";
 export const LOGIN_USER = "LOGIN_USER";
+export const Forget_PASSWORD = "Forget_PASSWORD";
+export const VERIFY_PASSWORD = "VERIFY_PASSWORD";
+export const RESET_PASSWORD = "RESET_PASSWORD";
 
 

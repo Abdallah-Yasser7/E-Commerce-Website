@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 export const NavBarLogin = () => {
   const [onChangeSearch] = useNavbarSearchHook();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   let word = "";
   if (localStorage.getItem("searchWord") != null) {
@@ -28,14 +28,18 @@ export const NavBarLogin = () => {
   console.log(user);
 
   const logout = () => {
-    localStorage.removeItem("user")
-    setUser("")
-    navigate("/")
-  }
+    localStorage.removeItem("user");
+    setUser("");
+    navigate("/");
+  };
 
-  const profile = () => {
-    navigate("/user/profile")
-  }
+  const profileUser = () => {
+    navigate("/user/profile");
+  };
+
+  const profileAdmin = () => {
+    navigate("/admin/allproducts");
+  };
 
   return (
     <Navbar bg="dark" expand="sm" variant="dark" className="sticky-top">
@@ -59,9 +63,19 @@ export const NavBarLogin = () => {
             <Nav.Link className="nav-text d-flex justify-content-center align-items-center">
               {user !== "" ? (
                 <NavDropdown title={user.name} id="basic-nav-dropdown">
-                  <NavDropdown.Item onClick={profile} href="/user/profile">الصفحه الشخصيه</NavDropdown.Item>
+                  {user.role === "admin" ? (
+                    <NavDropdown.Item onClick={profileAdmin} href="/admin/allproducts">
+                      لوحة التحكم
+                    </NavDropdown.Item>
+                  ) : (
+                    <NavDropdown.Item onClick={profileUser} href="/user/profile">
+                      الصفحه الشخصيه
+                    </NavDropdown.Item>
+                  )}
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logout} href="/">تسجيل الخروج</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logout} href="/">
+                    تسجيل الخروج
+                  </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <Link

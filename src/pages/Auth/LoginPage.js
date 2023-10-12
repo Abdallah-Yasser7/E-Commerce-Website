@@ -6,8 +6,8 @@ import { useLoginHook } from "../../hook/Auth/loginHook";
 import { ToastContainer } from "react-toastify";
 
 export const LoginPage = () => {
-
-  const [email, password, handelEmail, handelPassword, handelSubmit, spinner] = useLoginHook();
+  const [email, password, handelEmail, handelPassword, handelSubmit, spinner] =
+    useLoginHook();
 
   return (
     <Container style={{ minHeight: "670px" }}>
@@ -30,14 +30,22 @@ export const LoginPage = () => {
             placeholder="كلمه السر..."
             className="input-login"
           />
-          <button onClick={handelSubmit} className="btn-login">تسجيل الدخول</button>
+          <button onClick={handelSubmit} className="btn-login">
+            تسجيل الدخول
+          </button>
           <label>
             ليس لديك حساب ؟
             <Link to="/register" style={{ textDecoration: "none" }}>
               <span className="span-login">اضغط هنا</span>
             </Link>
           </label>
-          {spinner ? (<Spinner animation="border" variant="dark" />) : null }
+          <label>
+            هل نسيت كلمة السر ؟
+            <Link to="/user/forget-password" style={{ textDecoration: "none" }}>
+              <span className="span-login">اضغط هنا</span>
+            </Link>
+          </label>
+          {spinner ? <Spinner animation="border" variant="dark" /> : null}
         </Col>
       </Row>
       <label className="mt-5 w-100">
@@ -52,7 +60,7 @@ export const LoginPage = () => {
           <span className="span-login">اضغط هنا</span>
         </Link>
       </label>
-      <ToastContainer/>
+      <ToastContainer />
     </Container>
   );
 };
