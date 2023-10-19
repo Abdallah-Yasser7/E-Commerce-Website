@@ -1,6 +1,6 @@
 import baseUrl from "../Api/baseURL";
 
-export const useUpdateProduct = async (url, params) => {
+export const useUpdateData = async (url, params) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -10,7 +10,7 @@ export const useUpdateProduct = async (url, params) => {
   return res
 }
 
-export const useUpdateProductWithImage = async (url, params) => {
+export const useUpdateDataWithImage = async (url, params) => {
   const config = {
     headers: {
       "content-type": "multipart/from-data",

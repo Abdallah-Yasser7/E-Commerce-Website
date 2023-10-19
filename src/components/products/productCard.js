@@ -27,7 +27,7 @@ export const ProductCard = ({products}) => {
             <div className="d-flex">
               <img alt="" src={rate} className="img-rate" />
               <p className="px-1 fw-bold mb-0" style={{ color: "#ffc107" }}>
-                {products.ratingsQuantity}
+                {products.ratingsAverage || 0}
               </p>
             </div>
             <div className="d-flex">

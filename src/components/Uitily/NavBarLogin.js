@@ -25,7 +25,6 @@ export const NavBarLogin = () => {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, []);
-  console.log(user);
 
   const logout = () => {
     localStorage.removeItem("user");

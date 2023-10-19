@@ -9,7 +9,13 @@ import { useViewDetailsProductHook } from "../../hook/products/viewDetailsProduc
 
 export const ProductDetialsPage = () => {
   const { id } = useParams();
-  const [ , , , productLike] = useViewDetailsProductHook(id);
+  const [item, , , productLike] = useViewDetailsProductHook(id);
+  let rateAvg = ""
+  let rateQut = ""
+  if (item) {
+    rateAvg = item.ratingsAverage;
+    rateQut = item.ratingsQuantity;
+  }
   let prodLike = productLike.slice(0, 4);
 
   return (
@@ -17,7 +23,7 @@ export const ProductDetialsPage = () => {
       <NavFilter />
       <Container>
         <CardProductComponanet/>
-        <RateContainer/>
+        <RateContainer rateAvg={rateAvg} rateQut={rateQut}/>
         <ProductCardContainer products = {prodLike} title="منتجات قد تعجبك"/>
       </Container>
     </div>

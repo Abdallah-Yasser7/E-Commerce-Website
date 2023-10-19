@@ -23,4 +23,9 @@ export const Forget_PASSWORD = "Forget_PASSWORD";
 export const VERIFY_PASSWORD = "VERIFY_PASSWORD";
 export const RESET_PASSWORD = "RESET_PASSWORD";
 
+export const CREATE_RATE = "CREATE_RATE";
+export const GET_ALL_RATE = "GET_ALL_RATE";
+export const DELETE_RATE = "DELETE_RATE";
+export const UPDATE_RATE = "UPDATE_RATE";
+
 

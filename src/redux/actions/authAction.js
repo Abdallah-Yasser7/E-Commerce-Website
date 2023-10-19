@@ -1,6 +1,6 @@
 import { useInsertData } from './../../hooks/useInsertData';
 import { CREATE_USER, LOGIN_USER, Forget_PASSWORD, VERIFY_PASSWORD, RESET_PASSWORD } from "../type";
-import { useUpdateProduct } from './../../hooks/useUpdateProduct';
+import { useUpdateData } from './../../hooks/useUpdateData';
 
 
 export const createUser = (data) => async (dispatch) => {
@@ -65,7 +65,7 @@ export const verifyPassword = (data) => async (dispatch) => {
 
 export const resetPassword = (data) => async (dispatch) => {
   try {
-    const res = await useUpdateProduct(`/api/v1/auth/resetPassword`, data);
+    const res = await useUpdateData(`/api/v1/auth/resetPassword`, data);
     dispatch({
       type: RESET_PASSWORD,
       payload: res,

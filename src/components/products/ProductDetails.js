@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useViewDetailsProductHook } from "../../hook/products/viewDetailsProductHook";
+import rate from "../../images/rate.png";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -14,9 +15,10 @@ export const ProductDetails = () => {
       </Row>
       <Row>
         <Col md="8">
-          <div className="cat-title d-inline">
+          <div className="cat-title d-inline-flex">
             {item.title}{" "}
-            <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div>
+              <img alt="" src={rate} className="img-rate me-2 d-inline" />
+              <div className="cat-rate d-inline">{item.ratingsAverage}</div>
           </div>
         </Col>
       </Row>
@@ -47,14 +49,14 @@ export const ProductDetails = () => {
       </Row>
       <Row className="mt-2">
         <Col md="10">
-          <div className="product-description d-inline">
-                {item.description}
-          </div>
+          <div className="product-description d-inline">{item.description}</div>
         </Col>
       </Row>
       <Row className="mt-4">
         <Col md="12">
-          <div className="product-price d-inline p-3 border">{item.price} جنية</div>
+          <div className="product-price d-inline p-3 border">
+            {item.price} جنية
+          </div>
           <div className="product-cart-add px-3 py-3 d-inline mx-3">
             اضف للعربة
           </div>
