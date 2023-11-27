@@ -6,7 +6,7 @@ export const useViewProductAdminHook = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProduct(12))
+    dispatch(getAllProduct(8))
   },[dispatch])
 
   const products = useSelector(state => state.allProduct.allProduct)
@@ -29,7 +29,7 @@ export const useViewProductAdminHook = () => {
   }
 
   const onpress = async (data) => {
-    await dispatch(getAllProduct(12, data))
+    await dispatch(getAllProduct(8, data))
   }
 
   return [items, pagination, onpress]

@@ -16,7 +16,6 @@ export const ProductsPage = () => {
   } else {
     pageCount = 0;
   }
-
   return (
     <div style={{minHeight:"670px"}}>
       <NavFilter/>

@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllProduct,
   getProductSearch,
 } from "../../redux/actions/productsAction";
 
 export const useSearchHomProductHook = () => {
   const dispatch = useDispatch();
-  let limit = 12;
+  let limit = 8;
 
   let word = "";
   let queryCat = "";
@@ -59,7 +58,7 @@ export const useSearchHomProductHook = () => {
   };
 
   useEffect(() => {
-    getAllProduct();
+    getProductFromSearch();
   }, []);
 
   const products = useSelector((state) => state.allProduct.allProduct);
@@ -94,6 +93,9 @@ export const useSearchHomProductHook = () => {
 
     if (sortType === "السعر من الاقل للاعلي") {
       sort = "+price";
+    }
+    if (sortType === "") {
+      sort = "";
     }
     if (sortType === "السعر من الاعلي للاقل") {
       sort = "-price";

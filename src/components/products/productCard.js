@@ -1,11 +1,16 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
-import favoff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import "../../styles/HomePage.css";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { useAddAndRemoveFromWishListHook } from "../../hook/wishList/addAndRemoveFromWishListHook";
 
-export const ProductCard = ({products}) => {
+
+
+export const ProductCard = ({products, favProd}) => {
+
+  const [iconImg, handelFav] = useAddAndRemoveFromWishListHook(products, favProd)
   return (
     <Col
       sm="6"
@@ -19,7 +24,7 @@ export const ProductCard = ({products}) => {
           <Card.Img style={{height: "200px", width: "100%"}} src={products.imageCover} />
         </Link>
         <Card.Body className="card-body">
-          <img alt="" src={favoff} className="img-fav" />
+          <img alt="" src={iconImg} className="img-fav" style={{cursor:"pointer"}} onClick={handelFav} />
           <Card.Text className="card-text">
             {products.title}
           </Card.Text>
@@ -37,6 +42,7 @@ export const ProductCard = ({products}) => {
           </div>
         </Card.Body>
       </Card>
+      <ToastContainer/>
     </Col>
   );
 };

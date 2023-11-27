@@ -28,4 +28,7 @@ export const GET_ALL_RATE = "GET_ALL_RATE";
 export const DELETE_RATE = "DELETE_RATE";
 export const UPDATE_RATE = "UPDATE_RATE";
 
+export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
+export const REMOVE_FROM_WISHLIST = "REMOVE_FROM_WISHLIST";
+export const GET_ALL_WISHLIST = "GET_ALL_WISHLIST";
 

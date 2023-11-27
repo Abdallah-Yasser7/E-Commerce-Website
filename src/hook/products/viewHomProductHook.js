@@ -5,6 +5,13 @@ import { getAllProduct } from "../../redux/actions/productsAction";
 export const useViewHomProductHook = () => {
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+    if (localStorage.getItem("sortType")) {
+      localStorage.removeItem("sortType")
+    }
+  },[])
+
   useEffect(() => {
     dispatch(getAllProduct())
   },[dispatch])

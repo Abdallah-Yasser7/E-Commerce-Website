@@ -21,13 +21,14 @@ export const NavBarLogin = () => {
   const [user, setUser] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("user")) {
+    if (localStorage.getItem("user") != null) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, []);
 
   const logout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     setUser("");
     navigate("/");
   };

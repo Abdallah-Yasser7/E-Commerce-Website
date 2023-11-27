@@ -6,6 +6,6 @@ export const useGetData = async (url, params) => {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   };
-  const res = await baseUrl.get(url, params, config);
+  const res = await baseUrl.get(url, config, params);
   return res.data;
 };

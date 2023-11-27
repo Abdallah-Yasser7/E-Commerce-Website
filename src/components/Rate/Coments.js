@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import rate from "../../images/rate.png";
 import deleteIcon from "../../images/delete.png";
 import editIcon from "../../images/edit_icon.png";
