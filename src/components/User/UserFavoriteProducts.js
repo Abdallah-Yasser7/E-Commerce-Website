@@ -1,17 +1,18 @@
 import React from "react";
-import { SubTitle } from "../Uitily/SubTitle";
 import { Row } from "react-bootstrap";
-import { UserProductCard } from "../../pages/User/UserProductCard";
+import { UserProductCard } from "./UserProductCard";
+import { useGetAllWishListHook } from "../../hook/wishList/getAllWishListHook";
 
-export const UserFavoriteProducts = ({favProd}) => {
+export const UserFavoriteProducts = () => {
+  const [favProdID, favProd] = useGetAllWishListHook();
+
   return (
     <div>
-      <SubTitle title="قائمة المفضله" />
       <Row>
         {
-          favProd ? (
-              favProd.map((item, index) => <UserProductCard key={index} product={item}/>)
-          ) : null
+          favProd && favProd.length >=1 ? (
+              favProd.map((item, index) => <UserProductCard favProdID={favProdID} key={index} product={item}/>)
+          ) : <h4>لا توجد منتجات مفضله الان</h4>
         }
       </Row>
     </div>

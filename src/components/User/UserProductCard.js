@@ -5,10 +5,12 @@ import favoff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import "../../styles/HomePage.css";
 import { Link } from "react-router-dom";
+import { useAddAndRemoveFromWishListHook } from "../../hook/wishList/addAndRemoveFromWishListHook";
 
-export const UserProductCard = ({product}) => {
-  console.log(product.imageCover
-    );
+export const UserProductCard = ({product, favProdID}) => {
+  const [iconImg, handelFav] = useAddAndRemoveFromWishListHook(product, favProdID)
+
+  
   return (
     <Col
       sm="6"
@@ -19,10 +21,10 @@ export const UserProductCard = ({product}) => {
     >
       <Card style={{ width: "18rem" }} className="product-card">
         <Link to="/product/:id">
-          <Card.Img style={{height: "200px", width: "100%"}} src={product.imageCover} />
+          <Card.Img style={{height: "200px", width: "100%"}} src={"http://127.0.0.1:8000/products/" + product.imageCover} />
         </Link>
         <Card.Body className="card-body">
-          <img alt="" src={favoff} className="img-fav" />
+          <img alt="" src={iconImg} className="img-fav" onClick={handelFav} style={{cursor:"pointer"}}/>
           <Card.Text className="card-text">
             {product.title}
           </Card.Text>

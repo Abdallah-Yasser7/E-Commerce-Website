@@ -8,7 +8,6 @@ import { useGetAllWishListHook } from "../../hook/wishList/getAllWishListHook";
 export const ProductCardContainer = ({ title, btntitle , path, products }) => {
 
   const [ favProdID ] = useGetAllWishListHook()
-  console.log(products[0]);
   return (
     <Container>
       <SubTitle btntitle={btntitle} title={title} path={path} />

@@ -7,8 +7,6 @@ import { ProductCardContainer } from "../../components/products/productCardConta
 import { SubTitle } from "../../components/Uitily/SubTitle";
 
 export const UserFavoriteProductsPage = () => {
-  const [, favProd] = useGetAllWishListHook();
-  console.log(favProd);
   return (
     <Container style={{ minHeight: "670px" }}>
       <Row className="py-3">
@@ -17,11 +15,7 @@ export const UserFavoriteProductsPage = () => {
         </Col>
         <Col sm="9" xs="7" md="10" lg="10">
           <SubTitle title="قائمة المفضله" />
-          {favProd && favProd.length >= 1 ? (
-            <ProductCardContainer products={favProd} />
-          ) : (
-            <h4>لا توجد منتجات مفضله الان</h4>
-          )}
+          <UserFavoriteProducts />
         </Col>
       </Row>
     </Container>

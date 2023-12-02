@@ -1,5 +1,6 @@
 import React from "react";
 import deleteicon from "../../images/delete.png";
+import editicon from "../../images/edit_icon.png"
 import { Link } from "react-router-dom";
 
 export const UserAdressCard = () => {
@@ -10,7 +11,7 @@ export const UserAdressCard = () => {
         <div className="d-flex">
           <div>
             <Link to="/user/edit-address" style={{textDecoration:"none"}}>
-              <img alt="" src={deleteicon} className="deleteicon" />
+              <img alt="" src={editicon} className="deleteicon" />
               <span style={{ color: "gray", fontSize: "14px" }}>تعديل</span>
             </Link>
           </div>

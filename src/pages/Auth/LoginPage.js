@@ -48,18 +48,6 @@ export const LoginPage = () => {
           {spinner ? <Spinner animation="border" variant="dark" /> : null}
         </Col>
       </Row>
-      <label className="mt-5 w-100">
-        حساب الادمن :
-        <Link to="/admin/allproducts" style={{ textDecoration: "none" }}>
-          <span className="span-login">اضغط هنا</span>
-        </Link>
-      </label>
-      <label className="mt-2">
-        حساب المستخدم :
-        <Link to="/user/allorders" style={{ textDecoration: "none" }}>
-          <span className="span-login">اضغط هنا</span>
-        </Link>
-      </label>
       <ToastContainer />
     </Container>
   );
