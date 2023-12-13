@@ -24,7 +24,7 @@ export const useEditProductHook = () => {
   }, [dispatch]);
 
   const category = useSelector((state) => state.allCategory.category);
-  const brand = useSelector((state) => state.allBrand.brand);
+  const brand = useSelector((state) => state.allBrand.allBrand);
 
   const onSelect = (selectedList) => {
     setSelectSubCatID(selectedList);

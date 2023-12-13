@@ -10,7 +10,7 @@ const useBrandFeatureHook = () => {
     dispatch(getAllBrand())
   },[dispatch])
 
-  const brand = useSelector(state => state.allBrand.brand)
+  const brand = useSelector(state => state.allBrand.allBrand)
   const loading = useSelector(state => state.allBrand.loading)
 
   return [brand, loading];

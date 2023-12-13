@@ -1,8 +1,11 @@
-import { CREATE_BRAND, GET_ALL_BRAND, GET_ERROR, GET_ONE_BRAND } from "../type";
+import { CREATE_BRAND, GET_ALL_BRAND, GET_ERROR, GET_ONE_BRAND, DELETE_BRAND, UPDATE_BRAND } from "../type";
 
 const initialValue = {
-  brand: [],
+  createBrand: [],
+  allBrand: [],
   oneBrand: [],
+  deleteBrand: [],
+  updateBrand: [],
   loading: true,
 };
 
@@ -11,7 +14,7 @@ const brandReducer = (state = initialValue, action) => {
     case GET_ALL_BRAND:
       return {
         ...state,
-        brand: action.payload,
+        allBrand: action.payload,
         loading: false,
       };
     case GET_ONE_BRAND:
@@ -21,7 +24,17 @@ const brandReducer = (state = initialValue, action) => {
       };
     case CREATE_BRAND:
       return {
-        brand: action.payload,
+        createBrand: action.payload,
+        loading: false,
+      };
+    case DELETE_BRAND:
+      return {
+        deleteBrand: action.payload,
+        loading: false,
+      };
+    case UPDATE_BRAND:
+      return {
+        updateBrand: action.payload,
         loading: false,
       };
     case GET_ERROR:

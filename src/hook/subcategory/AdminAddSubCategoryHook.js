@@ -18,7 +18,7 @@ export const useAdminAddSubCategoryHook = () => {
   }, [dispatch]);
 
   const category = useSelector((state) => state.allCategory.category);
-  const subCategory = useSelector((state) => state.subCategory.subCategory);
+  const subCategory = useSelector((state) => state.subCategory.createSubCategory);
 
   const [id, setId] = useState("0");
   const [name, setName] = useState("");
@@ -78,8 +78,6 @@ export const useAdminAddSubCategoryHook = () => {
         notify("هناك مشكله في عملية الاضافه", "warn");
       }
       // dispatch(getAllCategory());
-      console.log(category);
-      console.log(subCategory);
       setLoading(true);
     }
   },[subCategory, loading, category, dispatch]);

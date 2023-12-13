@@ -1,29 +1,29 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getAllCoupon } from "../../redux/actions/couponAction"
+import { getAllBrand } from "../../redux/actions/brandAction"
 
-export const useAllCouponHook = () => {
+export const useAllBrandHook = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
     const run = async () => {
-      await dispatch(getAllCoupon(5))
+      await dispatch(getAllBrand(8))
     }
     run()
   },[])
 
-  const res = useSelector(state => state.couponReducer.allCoupon)
+  const res = useSelector(state => state.allBrand.allBrand)
 
-  let allCoupons = []
+  let allBrand = []
   if (res) {
     if (res.data) {
-      allCoupons = res.data
+      allBrand = res.data
     }
   }
 
-  let allCouponResults = []
+  let allBrandResults = []
   if (res) {
-      allCouponResults = res
+    allBrandResults = res
   }
 
   let pageCount = 0
@@ -35,9 +35,9 @@ export const useAllCouponHook = () => {
   }
 
   const onpress = async (page) => {
-    await dispatch(getAllCoupon(5, page))
+    await dispatch(getAllBrand(8, page))
   }
 
-  return [allCoupons, pageCount, onpress, allCouponResults]
+  return [allBrand, pageCount, onpress, allBrandResults]
 }
 

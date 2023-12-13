@@ -7,9 +7,9 @@ export const useBrandCardContainerHook = () => {
 
   useEffect(() => {
     getAllBrand()
-  })
+  },[])
 
-  const brand = useSelector(state => state.allBrand.brand)
+  const brand = useSelector(state => state.allBrand.allBrand)
   const loading = useSelector(state => state.allBrand.loading)
 
   let pageCount = 0

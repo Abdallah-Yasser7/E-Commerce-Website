@@ -8,8 +8,7 @@ import { useEffect } from "react";
 
 export const useAdminAddBrandHook = () => {
   const dispatch = useDispatch();
-  const res = useSelector((state) => state.allBrand.brand);
-  console.log(res.status);
+  const res = useSelector((state) => state.allBrand.createBrand);
 
   const [img, setImg] = useState(avatar);
   const [name, setName] = useState("");
@@ -36,9 +35,16 @@ export const useAdminAddBrandHook = () => {
       return;
     }
 
+    if (name.length < 3) {
+      notify("يجب ان يكون الاسم مكون من 3 حروف او اكثر", "warn");
+      return;
+    }
+
+    console.log(urlSelected);
     const formData = new FormData();
     formData.append("name", name);
     formData.append("image", urlSelected);
+    console.log(urlSelected);
 
     setIsPress(true);
     await dispatch(createBrand(formData));
@@ -59,6 +65,9 @@ export const useAdminAddBrandHook = () => {
     if (loading === false) {
       if (res.status === 201) {
         notify("تم الاضافه بنجاح", "success");
+        setTimeout(() => {
+          window.location.reload()
+        }, 500);
       } else {
         notify("هناك مشكله في عملية الاضافه", "error");
       }

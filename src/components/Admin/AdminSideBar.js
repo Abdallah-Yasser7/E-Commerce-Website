@@ -8,6 +8,9 @@ export const AdminSideBar = () => {
       <Link to="/admin/allorders" style={{textDecoration:"none", color:"black"}}>
         <div className="text-sidebar border-bottom">ادارة الطلبات</div>
       </Link>
+      <Link to="/admin/addproduct" style={{textDecoration:"none", color:"black"}}>
+        <div className="text-sidebar border-bottom">اضف منتج</div>
+      </Link>
       <Link to="/admin/allproducts" style={{textDecoration:"none", color:"black"}}>
         <div className="text-sidebar border-bottom">ادارة المنتجات</div>
       </Link>
@@ -19,9 +22,6 @@ export const AdminSideBar = () => {
       </Link>
       <Link to="/admin/addsubcategory" style={{textDecoration:"none", color:"black"}}>
         <div className="text-sidebar border-bottom">اضف تصنيف فرعي</div>
-      </Link>
-      <Link to="/admin/addproduct" style={{textDecoration:"none", color:"black"}}>
-        <div className="text-sidebar border-bottom">اضف منتج</div>
       </Link>
       <Link to="/admin/addCoupon" style={{textDecoration:"none", color:"black"}}>
         <div className="text-sidebar border-bottom">اضف كوبون</div>

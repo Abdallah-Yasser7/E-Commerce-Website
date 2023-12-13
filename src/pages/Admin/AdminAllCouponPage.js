@@ -8,7 +8,6 @@ import { PaginationComponent } from './../../components/Uitily/Pagination';
 
 export const AdminAllCouponPage = () => {
   const [allCoupons, pageCount, onpress, allCouponResults] = useAllCouponHook()
-  console.log(allCoupons);
   return (
     <Container style={{ minHeight: "670px" }}>
       <Row className="py-3">
@@ -22,7 +21,7 @@ export const AdminAllCouponPage = () => {
               allCoupons.map((item, index) => {
                 return <AdminAllCoupon key={index} coupon={item}/>
               })
-            ) : <h4>لا توجد كوبونات الا</h4>
+            ) : <h4>لا توجد كوبونات الان</h4>
           }
         </Col>
       </Row>
