@@ -7,6 +7,7 @@ import authReducer from './authReducer';
 import rateReducer from './rateReducer';
 import wishListReducer from './wishListReducer';
 import couponReducer from './couponReducer';
+import userAddressReducer from './userAddressReducer';
 
 export default combineReducers({
   allCategory: categoryReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   rateReducer: rateReducer,
   wishListReducer: wishListReducer,
   couponReducer: couponReducer,
+  userAddressReducer:userAddressReducer,
 })
