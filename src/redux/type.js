@@ -29,6 +29,8 @@ export const LOGIN_USER = "LOGIN_USER";
 export const Forget_PASSWORD = "Forget_PASSWORD";
 export const VERIFY_PASSWORD = "VERIFY_PASSWORD";
 export const RESET_PASSWORD = "RESET_PASSWORD";
+export const UPDATE_USER_DATA = "UPDATE_USER_DATA";
+export const UPDATE_USER_PASSWORD = "UPDATE_USER_PASSWORD";
 
 export const CREATE_RATE = "CREATE_RATE";
 export const GET_ALL_RATE = "GET_ALL_RATE";

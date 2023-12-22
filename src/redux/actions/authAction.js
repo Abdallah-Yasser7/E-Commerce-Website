@@ -1,5 +1,5 @@
 import { useInsertData } from './../../hooks/useInsertData';
-import { CREATE_USER, LOGIN_USER, Forget_PASSWORD, VERIFY_PASSWORD, RESET_PASSWORD } from "../type";
+import { CREATE_USER, LOGIN_USER, Forget_PASSWORD, VERIFY_PASSWORD, RESET_PASSWORD, UPDATE_USER_DATA, UPDATE_USER_PASSWORD } from "../type";
 import { useUpdateData } from './../../hooks/useUpdateData';
 
 
@@ -73,6 +73,36 @@ export const resetPassword = (data) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: RESET_PASSWORD,
+      payload: e.response,
+    })
+  }
+};
+
+export const updateUserData = (body) => async (dispatch) => {
+  try {
+    const res = await useUpdateData("/api/v1/users/updateMe", body);
+    dispatch({
+      type: UPDATE_USER_DATA,
+      payload: res,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_USER_DATA,
+      payload: e.response,
+    })
+  }
+};
+
+export const updateUserPassword = (body) => async (dispatch) => {
+  try {
+    const res = await useUpdateData("/api/v1/users/changeMyPassword", body);
+    dispatch({
+      type: UPDATE_USER_PASSWORD,
+      payload: res,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_USER_PASSWORD,
       payload: e.response,
     })
   }

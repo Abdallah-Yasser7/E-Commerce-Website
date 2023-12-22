@@ -11,7 +11,7 @@ export const UserProfilePage = () => {
           <UserSideBar />
         </Col>
         <Col sm="9" xs="8" md="10" lg="10">
-          <UserProfile/>
+        <UserProfile />
         </Col>
       </Row>
     </Container>
