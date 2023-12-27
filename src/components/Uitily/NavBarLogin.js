@@ -8,9 +8,11 @@ import { useNavbarSearchHook } from "../../hook/search/navbarSearchHook";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useGetAllUserCartHook } from "../../hook/cart/GetAllUserCartHook";
 
 export const NavBarLogin = () => {
   const [onChangeSearch] = useNavbarSearchHook();
+  const [ numOfItem ] = useGetAllUserCartHook()
   const navigate = useNavigate();
 
   let word = "";
@@ -64,11 +66,17 @@ export const NavBarLogin = () => {
               {user !== "" ? (
                 <NavDropdown title={user.name} id="basic-nav-dropdown">
                   {user.role === "admin" ? (
-                    <NavDropdown.Item onClick={profileAdmin} href="/admin/allproducts">
+                    <NavDropdown.Item
+                      onClick={profileAdmin}
+                      href="/admin/allproducts"
+                    >
                       لوحة التحكم
                     </NavDropdown.Item>
                   ) : (
-                    <NavDropdown.Item onClick={profileUser} href="/user/profile">
+                    <NavDropdown.Item
+                      onClick={profileUser}
+                      href="/user/profile"
+                    >
                       الصفحه الشخصيه
                     </NavDropdown.Item>
                   )}
@@ -102,16 +110,22 @@ export const NavBarLogin = () => {
                 style={{ textDecoration: "none" }}
                 className="d-flex"
               >
-                <img src={cart} alt="img cart" className="login-img" />
-                <p
-                  style={{
-                    color: "white",
-                    marginBottom: "0",
-                    marginRight: "3px",
-                  }}
-                >
-                  العربه
-                </p>
+                <div className="d-flex position-relative">
+                  <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
+                    {numOfItem || 0}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                  <img src={cart} alt="img cart" className="login-img" />
+                  <p
+                    style={{
+                      color: "white",
+                      marginBottom: "0",
+                      marginRight: "3px",
+                    }}
+                  >
+                    العربه
+                  </p>
+                </div>
               </Link>
             </Nav.Link>
           </Nav>

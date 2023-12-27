@@ -10,13 +10,22 @@ import ReactStars from "react-rating-stars-component";
 
 export const Coments = ({ item }) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  // console.log(item._id);
 
-const [handleClose, handleShow, handelDelete, showDelete] = useDeleteRateHook(item._id)
-const [handleCloseEdit, handleShowEdit, handelEdit, showEdit, textEdit, starEdit,
-   onChangeText, onChangeStar] = useEditRateHook(item)
+  const [handleClose, handleShow, handelDelete, showDelete] = useDeleteRateHook(
+    item._id
+  );
+  const [
+    handleCloseEdit,
+    handleShowEdit,
+    handelEdit,
+    showEdit,
+    textEdit,
+    starEdit,
+    onChangeText,
+    onChangeStar,
+  ] = useEditRateHook(item);
 
-   const setting = {
+  const setting = {
     size: 20,
     count: 5,
     color: "gray",
@@ -28,7 +37,7 @@ const [handleCloseEdit, handleShowEdit, handelEdit, showEdit, textEdit, starEdit
     halfIcon: <i className="fa fa-star-half-alt" />,
     filledIcon: <i className="fa fa-star" />,
     onChange: (newValue) => {
-      onChangeStar(newValue)
+      onChangeStar(newValue);
     },
   };
 
@@ -63,7 +72,13 @@ const [handleCloseEdit, handleShowEdit, handelEdit, showEdit, textEdit, starEdit
         </Modal.Header>
         <Modal.Body>
           <ReactStars {...setting} />
-          <input value={textEdit} onChange={onChangeText} className="w-100" style={{border:"none",outline:"none"}} autoFocus/>
+          <input
+            value={textEdit}
+            onChange={onChangeText}
+            className="w-100"
+            style={{ border: "none", outline: "none" }}
+            autoFocus
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseEdit}>
@@ -89,28 +104,30 @@ const [handleCloseEdit, handleShowEdit, handelEdit, showEdit, textEdit, starEdit
         className="pe-2 d-inline d-flex justify-content-between"
       >
         <div>{item.review}</div>
-        {user._id === item.user._id ? (
-          <div>
-            <img
-              onClick={handleShow}
-              alt=""
-              src={deleteIcon}
-              width="20px"
-              height="20px"
-              style={{ cursor: "pointer" }}
-            />
-            <img
-              onClick={handleShowEdit}
-              alt=""
-              src={editIcon}
-              width="20px"
-              height="20px"
-              style={{ cursor: "pointer" }}
-            />
-          </div>
+        {item ? (
+          user._id === item.user._id ? (
+            <div>
+              <img
+                onClick={handleShow}
+                alt=""
+                src={deleteIcon}
+                width="20px"
+                height="20px"
+                style={{ cursor: "pointer" }}
+              />
+              <img
+                onClick={handleShowEdit}
+                alt=""
+                src={editIcon}
+                width="20px"
+                height="20px"
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+          ) : null
         ) : null}
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useViewDetailsProductHook } from "../../hook/products/viewDetailsProductHook";
 import rate from "../../images/rate.png";
+import { useAddProductToCartHook } from "../../hook/cart/addProductToCartHook";
+import { ToastContainer } from "react-toastify";
 
 export const ProductDetails = () => {
   const { id } = useParams();
   const [item, catName, brandName] = useViewDetailsProductHook(id);
+  const [ , colorChecked, colorClick, handelClick] = useAddProductToCartHook(id, item)
+
 
   return (
     <div className="p-3">
@@ -35,8 +39,9 @@ export const ProductDetails = () => {
               ? item.availableColors.map((color, index) => (
                   <div
                     key={index}
-                    className="color ms-2 border"
-                    style={{ backgroundColor: `${color}` }}
+                    className="color ms-2"
+                    style={{ backgroundColor: `${color}`, cursor:"pointer", border: color === colorChecked ? "4px solid #212529" : "none" }}
+                    onClick={() => colorClick(index, color)}
                   ></div>
                 ))
               : null
@@ -57,11 +62,12 @@ export const ProductDetails = () => {
           <div className="product-price d-inline p-3 border">
             {item.price} جنية
           </div>
-          <div className="product-cart-add px-3 py-3 d-inline mx-3">
+          <div onClick={handelClick} className="product-cart-add px-3 py-3 d-inline mx-3">
             اضف للعربة
           </div>
         </Col>
       </Row>
+      <ToastContainer/>
     </div>
   );
 };
