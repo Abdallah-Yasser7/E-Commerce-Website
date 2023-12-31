@@ -155,6 +155,7 @@ export const useAddProductHook = () => {
     formData.append("description", prodDescription);
     formData.append("quantity", qty);
     formData.append("price", priceBefore);
+    formData.append("priceAfterDiscount", priceAfter);
     formData.append("imageCover", imgCover);
     formData.append("category", catID);
     formData.append("brand", brandID);

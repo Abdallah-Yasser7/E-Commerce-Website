@@ -103,7 +103,7 @@ export const AdminAddProduct = () => {
           value={catID}
         >
           <option value="0">اختر تصنيف رئيسي</option>
-          {category
+          {category && category.data
             ? category.data.map((item) => {
                 return <option value={item._id}>{item.name}</option>;
               })

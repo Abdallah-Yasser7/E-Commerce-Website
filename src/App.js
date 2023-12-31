@@ -32,6 +32,8 @@ import { AdminAllCouponPage } from "./pages/Admin/AdminAllCouponPage";
 import { AdminEditCouponPage } from "./pages/Admin/AdminEditCouponPage";
 import { UseProtectedRouteHook } from "./hook/Auth/protectedRouteHook";
 import { ProtectedRoute } from "./components/Uitily/ProtectedRoute";
+import { ProductsByCategoryPagePage } from "./pages/Products/productsByCategoryPage";
+import { ProductsByBrandPage } from "./pages/Products/productByBrandPage";
 
 function App() {
   const [isUser, isAdmin, userData] = UseProtectedRouteHook()
@@ -55,6 +57,8 @@ function App() {
           <Route path="/user/forget-password" element={<ForgetPasswordPage />} />
           <Route path="/user/verify-password" element={<VerifyPasswordPage />} />
           <Route path="/user/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/products/category/:id" element={<ProductsByCategoryPagePage />} />
+          <Route path="/products/brand/:id" element={<ProductsByBrandPage />} />
 
         <Route element={<ProtectedRoute auth={isAdmin}/>}>
           <Route path="/admin/allproducts" element={<AdminAllProductsPage />} />

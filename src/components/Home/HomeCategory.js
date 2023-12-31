@@ -18,6 +18,7 @@ export const HomeCategory = () => {
                 .slice(0, 6)
                 .map((item, index) => (
                   <CategoryCard
+                    id={item._id}
                     title={item.name}
                     img={item.image}
                     background={colors[index]}

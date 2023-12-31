@@ -15,7 +15,7 @@ const useHomeCategoryHook = () => {
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(getAllCategory());
-    });
+    },[]);
   
     const category = useSelector((state) => state.allCategory.category);
     const loading = useSelector((state) => state.allCategory.loading);

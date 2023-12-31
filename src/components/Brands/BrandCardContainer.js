@@ -10,7 +10,7 @@ export const BrandCardContainer = ({ brand, loading }) => {
       <Row>
         {loading === false ? (
           brand.data.map((item) => (
-            <BrandCard img={item.image} />
+            <BrandCard id={item._id} img={item.image} />
           ))
         ) : (
           <Spinner animation="border" variant="dark" className="Spinner" />

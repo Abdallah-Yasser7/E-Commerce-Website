@@ -54,12 +54,18 @@ export const AdminProductCard = ({ item }) => {
           >
             ازاله
           </div>
-          <Link to={`/admin/editProduct/${item._id}`} style={{textDecoration: "none"}}>
+          <Link
+            to={`/admin/editProduct/${item._id}`}
+            style={{ textDecoration: "none" }}
+          >
             <div style={{ color: "gray", cursor: "pointer" }}>تعديل</div>
           </Link>
         </div>
         <Link to={`/product/${item._id}`}>
-          <Card.Img style={{height: "200px", width: "100%"}} src={item.imageCover} />
+          <Card.Img
+            style={{ height: "200px", width: "100%" }}
+            src={item.imageCover}
+          />
         </Link>
         <Card.Body className="card-body">
           <Card.Text className="card-text">{item.title}</Card.Text>
@@ -71,7 +77,18 @@ export const AdminProductCard = ({ item }) => {
               </p>
             </div>
             <div className="d-flex">
-              <p className="fw-bold px-1 mb-0">{item.price}</p>
+              <p className="fw-bold px-1 mb-0">
+                {item.priceAfterDiscount >= 1 ? (
+                  <div>
+                    <span style={{ textDecorationLine: "line-through" }}>
+                      {item.price}
+                    </span>{" "}
+                    {item.priceAfterDiscount}
+                  </div>
+                ) : (
+                  `${item.price}`
+                )}
+              </p>
               <p className="mb-0">جنيه</p>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { useDeleteData } from "../../hooks/useDeleteData"
 import { useGetData } from "../../hooks/useGetData"
 import { useInsertDataWithImage } from "../../hooks/useInsertData"
 import { useUpdateDataWithImage } from "../../hooks/useUpdateData"
-import { GET_ERROR, CREATE_PRODUCT, GET_ALL_PRODUCT, GET_PRODUCT_DETAILS, GET_PRODUCT_LIKE, DELETE_PRODUCT, UPDATE_PRODUCT } from "../type"
+import { GET_ERROR, CREATE_PRODUCT, GET_ALL_PRODUCT, GET_ALL_PRODUCT_BY_BRAND, GET_ALL_PRODUCT_BY_CATEGORY, GET_PRODUCT_DETAILS, GET_PRODUCT_LIKE, DELETE_PRODUCT, UPDATE_PRODUCT } from "../type"
 
 
 export const createProduct = (formData) => async (dispatch) => {
@@ -32,6 +32,38 @@ export const getAllProduct = (limit, page) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_ERROR,
+      payload: "Error" + e,
+    })
+  }
+}
+
+export const getAllProductByCategory = (limit, categoryId, page) => async (dispatch) => {
+  try {
+    const res = await useGetData(`/api/v1/products?limit=${limit}&category=${categoryId}&page=${page}`)
+    dispatch({
+      type: GET_ALL_PRODUCT_BY_CATEGORY,
+      payload: res,
+      loading: true
+    })
+  } catch (e) {
+    dispatch({
+      type: GET_ALL_PRODUCT_BY_CATEGORY,
+      payload: "Error" + e,
+    })
+  }
+}
+
+export const getAllProductByBrand = (limit, brandId, page) => async (dispatch) => {
+  try {
+    const res = await useGetData(`/api/v1/products?limit=${limit}&brand=${brandId}&page=${page}`)
+    dispatch({
+      type: GET_ALL_PRODUCT_BY_BRAND,
+      payload: res,
+      loading: true
+    })
+  } catch (e) {
+    dispatch({
+      type: GET_ALL_PRODUCT_BY_BRAND,
       payload: "Error" + e,
     })
   }

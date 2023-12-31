@@ -17,9 +17,11 @@ export const CategoryCardContainer = ({loading, category}) => {
     <Container>
       <Row>
         {loading === false ? (
-          category.data ? (
+          category && category.data ? (
             category.data.map((item, index) => (
               <CategoryCard
+                key={index}
+                id={item._id}
                 title={item.name}
                 img={item.image}
                 background={colors[Math.trunc(Math.random() * 5) +1]}

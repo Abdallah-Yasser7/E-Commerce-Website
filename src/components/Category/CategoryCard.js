@@ -1,8 +1,9 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
 import "../../styles/HomePage.css"
+import { Link } from 'react-router-dom'
 
-export const CategoryCard = ({background, img, title}) => {
+export const CategoryCard = ({id, background, img, title}) => {
   return (
     <Col 
     lg="2"
@@ -12,8 +13,10 @@ export const CategoryCard = ({background, img, title}) => {
     className='my-4 d-flex justify-content-around pt-3'>
     <div style={{position: "relative"}}>
     <div style={{backgroundColor: `${background}`}} className='card-style'></div>
-      <img alt='card img' src={img} className='img-card'/>
-      <p className='pt-4 text-center'>{title}</p>
+      <Link to = {`/products/category/${id}`} style={{textDecoration:"none"}}>
+        <img alt='card img' src={img} className='img-card'/>
+        <p style={{color:"gray"}} className='pt-4 text-center fw-bold'>{title}</p>
+      </Link>
     </div>
     </Col>
   )
