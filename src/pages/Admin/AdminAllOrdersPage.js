@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { PaginationComponent } from "../../components/Uitily/Pagination";
 import { AdminSideBar } from "../../components/Admin/AdminSideBar";
 import { AdminAllOrders } from "../../components/Admin/AdminAllOrders";
 
@@ -15,7 +14,6 @@ export const AdminAllOrdersPage = () => {
           <AdminAllOrders />
         </Col>
       </Row>
-      <PaginationComponent />
     </Container>
   );
 };

@@ -2,22 +2,23 @@ import React from "react";
 import mobile from "../../images/mobile.png";
 import "../../styles/User.css"
 
-export const UserAllOrderCard = () => {
+export const UserAllOrderCard = ({item}) => {
   return (
     <div className="parent-all-order-card">
       <div>
-        <img alt="" src={mobile}  style={{width:"90px"}} />
+        <img alt="" src={`http://127.0.0.1:8000/products/`+ item.product.imageCover} style={{width:"150px", height:"100%"}} />
       </div>
       <div className="w-100 parent-details">
         <div className="mt-2 text-all-order-card">
-           ايفون XR بذاكرة سعة 128 جيجابايت ويدعم تقنية 4GLTE مع تطبيق فيس تايم (برودكت) احمر{" "}
-          <span className="cat-rate">4.5</span>
-          <span style={{color:"gray", fontSize:"small"}} className="mx-1">(160 تقيم)</span>
+          {item.product.title}
+          <span className="cat-rate mx-1">{item.product.ratingsAverage || 0}</span>
+          <span style={{color:"gray", fontSize:"small"}} className="mx-1">({item.product.ratingsQuantity || 0} تقيم)</span>
         </div>
+        <div className="mt-2" style={{backgroundColor:item.color, width:"30px", height:"30px", borderRadius:"15px"}}></div>
         <div className="d-flex style-1 mt-2 ">
-          <div className="mt-3">
+          <div>
             <span style={{ color: "gray", fontSize: "14px" }}>الكمية </span>
-            <input type="number" style={{ width: "40px" }} />
+            <input type="number" style={{ width: "40px" }} value={item.count} />
           </div>
         </div>
       </div>

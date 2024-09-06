@@ -1,7 +1,15 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { useUserAllAddressHook } from "../../hook/User/UserAllAddressHook";
+import { useOrderPayCashHook } from "../../hook/Checkout/orderPayCashHook";
+import { useParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 export const ChosePaymethod = () => {
+  const {id} = useParams()
+  const [userAddresses] = useUserAllAddressHook();
+  const [onSelectAddress, handelClick] = useOrderPayCashHook(id);
+  console.log(userAddresses );
   return (
     <div>
       <Row
@@ -12,14 +20,28 @@ export const ChosePaymethod = () => {
           boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.2)",
         }}
       >
-        <Col sm="12" className="my-4">
+        <Col sm="12" className="my-3">
           <input type="radio" className="mx-2" name="paymethod" id="1" />
           <label for="1">الدفع عن طريق البطاقه الائتمانيه</label>
         </Col>
-        <Col sm="12" className="my-4">
+        <Col sm="12" className="my-3">
           <input type="radio" className="mx-2" name="paymethod" id="2" />
           <label for="2">الدفع عند الاستلام</label>
         </Col>
+
+        <Col sm="4" className="my-3">
+          <select onChange={onSelectAddress} className="w-100 select-add-subcategory" style={{}}>
+            <option value={0}>اختر عنوان للشحن</option>
+            {
+              userAddresses ? (
+                userAddresses.map((item, index) => {
+                  return <option key={index} value={item._id}>{item.alias}</option>
+                })
+              ) : null
+            }
+          </select>
+        </Col>
+
       </Row>
       <Row className="mt-3">
         <Col className="d-flex justify-content-end">
@@ -35,6 +57,7 @@ export const ChosePaymethod = () => {
             43000 جنيه
           </div>
           <button
+            onClick={handelClick}
             style={{
               padding: "10px 15px",
               backgroundColor: "#212529",
@@ -47,6 +70,7 @@ export const ChosePaymethod = () => {
           </button>
         </Col>
       </Row>
+      <ToastContainer/>
     </div>
   );
 };

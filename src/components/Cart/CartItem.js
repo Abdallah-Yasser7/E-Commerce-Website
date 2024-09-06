@@ -3,7 +3,7 @@ import mobile from "../../images/mobile.png";
 import deleteicon from "../../images/delete.png";
 import "../../styles/Cart.css";
 import { useDeleteProductCartHook } from "../../hook/cart/deleteProductCartHook";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useUpdateCountFromCartHook } from "../../hook/cart/updateCountFromCartHook";
 
 export const CartItem = ({ item }) => {
@@ -11,7 +11,7 @@ export const CartItem = ({ item }) => {
   const [countItem, onChangeCount, handelClick] = useUpdateCountFromCartHook(item)
 
   return (
-    <div className="parent-cart-item mb-3">
+    <Row className="parent-cart-item mb-3">
       <Modal show={showOne} onHide={handleCloseOne}>
         <Modal.Header>
           <Modal.Title>
@@ -33,14 +33,14 @@ export const CartItem = ({ item }) => {
         </Modal.Footer>
       </Modal>
 
-      <div>
+      <Col sm="4">
         <img
           alt=""
           src={`http://127.0.0.1:8000/products/${item.product.imageCover}`}
-          className="img-cart-item"
+          className="img-cart-item w-100 h-100"
         />
-      </div>
-      <div className="w-100 parent-details">
+      </Col>
+      <Col className="w-100 parent-details">
         <div className="d-flex justify-content-between">
           <div style={{ color: "gray", fontSize: "14px" }}>
             {item.product.category ? item.product.category.name : `بدون تصنيف`}
@@ -78,7 +78,7 @@ export const CartItem = ({ item }) => {
             {item.price} جنية
           </div>
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };

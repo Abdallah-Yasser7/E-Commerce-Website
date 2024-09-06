@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export const UseProtectedRouteHook = () => {
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem("user")));
-  const [isUser, setIsUser] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isUser, setIsUser] = useState();
+  const [isAdmin, setIsAdmin] = useState();
 
 useEffect(() => {
   if (userData !== null) {

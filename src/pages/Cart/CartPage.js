@@ -7,7 +7,7 @@ import { useGetAllUserCartHook } from '../../hook/cart/GetAllUserCartHook'
 import { ToastContainer } from 'react-toastify'
 
 export const CartPage = () => {
-  const [ , itemsCart, totalPrice, nameCoupon, totalPriceAfterDiscount ] = useGetAllUserCartHook()
+  const [ , itemsCart, totalPrice, nameCoupon, totalPriceAfterDiscount, cartId ] = useGetAllUserCartHook()
 
   return (
     <Container style={{minHeight:"670px"}} className=''>
@@ -23,7 +23,7 @@ export const CartPage = () => {
         }
         </Col>
         <Col lg="3" xs="12" md="4">
-          <CartPayment totalPrice={totalPrice} nameCoupon={nameCoupon} totalPriceAfterDiscount={totalPriceAfterDiscount} />
+          <CartPayment cartId={cartId} itemsCart={itemsCart} totalPrice={totalPrice} nameCoupon={nameCoupon} totalPriceAfterDiscount={totalPriceAfterDiscount} />
         </Col>
       </Row>
       <ToastContainer/>

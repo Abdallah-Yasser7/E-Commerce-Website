@@ -1,41 +1,68 @@
 import React from "react";
-import deleteicon from "../../images/delete.png";
-import mobile from "../../images/mobile.png";
 import { Link } from "react-router-dom";
 
-export const AdminOrderCard = () => {
+export const AdminOrderCard = ({ item }) => {
+  console.log(item);
   return (
-    <Link to="/admin/order/:id" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to={`/admin/order/${item._id}`}
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <div className="parent-cart-item mb-3">
-        <div>
-          <img alt="" src={mobile} className="img-cart-item" />
-        </div>
         <div className="w-100 parent-details">
           <div className="d-flex justify-content-between">
-            <div style={{ color: "gray", fontSize: "14px" }}>طلب رقم #2125</div>
-            <div>
-              <img alt="" src={deleteicon} className="deleteicon" />
-              <span style={{ color: "gray", fontSize: "14px" }}>ازاله</span>
+            <div style={{ color: "gray", fontSize: "14px" }}>
+              طلب رقم #{item.id}
             </div>
           </div>
-          <div className="mt-2">
-            ايفون XR بذاكرة سعة 128 جيجابايت ويدعم تقنية 4GLTE مع تطبيق فيس{" "}
-            <span className="cat-rate">4.5</span>
+          <div className="d-flex">
+            <div className="mt-2 mx-1">
+              طلب من :{" "}
+              <span style={{ color: "gray", fontSize: "14px" }}>
+                {" "}
+                {item.user.name}{" "}
+              </span>
+            </div>
+            <div className="mt-2 mx-1">
+              الايميل :{" "}
+              <span style={{ color: "gray", fontSize: "14px" }}>
+                {" "}
+                {item.user.email}{" "}
+              </span>
+            </div>
+            <div className="mt-2 mx-1">
+              الموبايل :{" "}
+              <span style={{ color: "gray", fontSize: "14px" }}>
+                {" "}
+                {item.user.phone}{" "}
+              </span>
+            </div>
           </div>
-          <div>
-            <span style={{ color: "gray", fontSize: "14px" }}>الماركه : </span>
-            <span style={{ color: "rgb(73, 73, 73)" }} className="fw-bold fs-5">
-              ابل
-            </span>
-          </div>
-          <div className="color-item-cart mt-2"></div>
           <div className="d-flex justify-content-between mt-2">
-            <div>
-              <span style={{ color: "gray", fontSize: "14px" }}>الكمية </span>
-              <input type="number" style={{ width: "40px" }} />
+            <div className="d-flex">
+              <div className="mx-1">
+                التوصيل{" "}
+                <span style={{ color: "gray" }}>
+                  {item.isDelivered === false ? "لم يتم" : "تم التوصيل"}
+                </span>
+              </div>
+              <div className="mx-1">
+                الدفع{" "}
+                <span style={{ color: "gray" }}>
+                  {item.isPaid === false ? "لم يتم" : "تم الدفع"}
+                </span>
+              </div>
+              <div className="mx-1">
+                طريقة الدفع{" "}
+                <span style={{ color: "gray" }}>
+                  {item.paymentMethodType === "cash"
+                    ? "كاش"
+                    : "البطاقه الاتمانيه"}
+                </span>
+              </div>
             </div>
             <div style={{ color: "rgb(73, 73, 73)" }} className="fw-bold">
-              3000 جنية
+              {item.totalOrderPrice} جنية
             </div>
           </div>
         </div>

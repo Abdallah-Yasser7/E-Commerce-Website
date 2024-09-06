@@ -2,20 +2,42 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDeleteProductCartHook } from "../../hook/cart/deleteProductCartHook";
 import { useApplyCouponHook } from "../../hook/cart/applyCouponHook";
+import notify from "../../hook/useNotifaction";
 
-export const CartPayment = ({ totalPrice, nameCoupon, totalPriceAfterDiscount }) => {
-
-  const [handelApply, couponName, onChangeCoupon] = useApplyCouponHook()
-  const [show, handleClose, handelDeleteAll, handleShow] = useDeleteProductCartHook()
+export const CartPayment = ({
+  totalPrice,
+  nameCoupon,
+  totalPriceAfterDiscount,
+  itemsCart,
+  cartId
+}) => {
+  const [handelApply, couponName, onChangeCoupon] = useApplyCouponHook();
+  const [show, handleClose, handelDeleteAll, handleShow] =
+    useDeleteProductCartHook();
 
   useEffect(() => {
     if (nameCoupon) {
-      onChangeCoupon(nameCoupon)
+      onChangeCoupon(nameCoupon);
     }
-  },[nameCoupon])
+  }, [nameCoupon]);
+
+  const navigate = useNavigate();
+
+  const handelClick = () => {
+    if (itemsCart) {
+      if (itemsCart.length >= 1) {
+        navigate(`/order/paymethod/${cartId}`);
+      } else {
+        notify("من فضلك اضف منتاجات للعربه", "warn");
+      }
+    } else {
+      notify("من فضلك اضف منتاجات للعربه", "warn");
+    }
+    console.log(itemsCart);
+  };
 
   return (
     <div className="parent-cart-payment">
@@ -48,17 +70,22 @@ export const CartPayment = ({ totalPrice, nameCoupon, totalPriceAfterDiscount })
           onChange={(e) => onChangeCoupon(e.target.value)}
           value={couponName}
         />
-        <button onClick={handelApply} className="btn-cart-payment">تطبيق</button>
+        <button onClick={handelApply} className="btn-cart-payment">
+          تطبيق
+        </button>
       </div>
-      <div className="w-100 text-center price my-3">{totalPriceAfterDiscount >=1 ? 
-        `${totalPrice} جنية...بعد الخصم ${totalPriceAfterDiscount} جنيه` :
-        `${totalPrice || 0} جنية`
-      }</div>
+      <div className="w-100 text-center price my-3">
+        {totalPriceAfterDiscount >= 1
+          ? `${totalPrice} جنية...بعد الخصم ${totalPriceAfterDiscount} جنيه`
+          : `${totalPrice || 0} جنية`}
+      </div>
       <div>
-        <button onClick={handleShow} className="w-100 btn-cart my-1">مسح العربه</button>
-        <Link to="/order/paymethod">
-          <button className="w-100 btn-cart">اتمام الشراء</button>
-        </Link>
+        <button onClick={handleShow} className="w-100 btn-cart my-1">
+          مسح العربه
+        </button>
+        <button onClick={handelClick} className="w-100 btn-cart">
+          اتمام الشراء
+        </button>
       </div>
     </div>
   );

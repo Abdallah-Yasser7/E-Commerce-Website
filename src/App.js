@@ -53,7 +53,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductDetialsPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/order/paymethod" element={<ChosePaymethodPage />} />
+          <Route path="/order/paymethod/:id" element={<ChosePaymethodPage />} />
           <Route path="/user/forget-password" element={<ForgetPasswordPage />} />
           <Route path="/user/verify-password" element={<VerifyPasswordPage />} />
           <Route path="/user/reset-password" element={<ResetPasswordPage />} />
